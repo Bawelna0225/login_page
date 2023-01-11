@@ -13,14 +13,6 @@ body {
   background-color: rgb(81, 95, 205);
 }
 
-input {
-  padding: 8px 15px;
-  width: 300px;
-  border-radius: 4px;
-  border: 1px solid rgb(179, 179, 179);
-  font-size: 0.8rem;
-}
-
 form {
   display: flex;
   flex-direction: column;
@@ -35,6 +27,13 @@ form {
 form h2 {
   font-size: 1.8rem;
   font-weight: normal;
+}
+form input {
+  padding: 8px 15px;
+  width: 300px;
+  border-radius: 4px;
+  border: 1px solid rgb(179, 179, 179);
+  font-size: 0.8rem;
 }
 form .button {
   background-color: rgb(81, 95, 205);
