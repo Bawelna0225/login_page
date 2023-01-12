@@ -5,23 +5,43 @@
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 }
+:root {
+	--primary-color: rgb(20, 20, 20);
+	--text-color: rgb(255, 255, 255);
+	--accent-color: rgb(205, 102, 81);
+	--hover-accent-color: rgb(184, 82, 64);
+	--input-border-color: rgb(179, 179, 179);
+	--shadow-color: rgba(7, 7, 7, 0.559);
+}
+:root {
+	--primary-color: rgb(255, 255, 255);
+	--text-color: rgb(0, 0, 0);
+	--accent-color: rgb(205, 102, 81);
+	--hover-accent-color: rgb(184, 82, 64);
+	--input-border-color: rgb(179, 179, 179);
+	--shadow-color: rgba(0, 0, 0, 0.113);
+}
 body {
 	display: grid;
 	place-content: center;
 	height: 100vh;
-	background-color: rgb(81, 95, 205);
+	background-color: var(--primary-color);
+	color: var(--text-color);
 }
-
+a {
+	color: var(--accent-color);
+}
 form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	max-width: 400px;
 	gap: 15px;
-	background-color: #fff;
+	background-color: var(--primary-color);
 	padding: 25px;
 	border-radius: 4px;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.209);
+	box-shadow: 0px 0px 10px var(--shadow-color);
 	h2 {
 		font-size: 1.8rem;
 		font-weight: normal;
@@ -30,19 +50,36 @@ form {
 		padding: 8px 15px;
 		width: 300px;
 		border-radius: 4px;
-		border: 1px solid rgb(179, 179, 179);
+		background-color: var(--primary-color);
+		border: 1px solid var(--input-border-color);
+		color: var(--text-color);
 		font-size: 0.8rem;
 	}
 	.button {
-		background-color: rgb(81, 95, 205);
+		background-color: var(--accent-color);
 		color: #fff;
 		border: none;
 		&:hover {
-			background-color: rgb(64, 78, 184);
+			background-color: var(--hover-accent-color);
 			cursor: pointer;
 		}
 	}
 	p {
 		font-size: 0.8rem;
+	}
+}
+.alert {
+	width: 100%;
+	max-width: 400px;
+	padding: 15px;
+	border-radius: 8px;
+	text-align: center;
+	&-danger {
+		background-color: rgb(237, 180, 180);
+		color: rgb(124, 28, 28);
+	}
+	&-success {
+		background-color: rgb(190, 237, 180);
+		color: rgb(28, 124, 28);
 	}
 }

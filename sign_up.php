@@ -1,3 +1,4 @@
+<?php require_once "userDataController.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +9,36 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <form action="signup-user.php" method="POST" autocomplete="">
+    <form action="sign_up.php" method="POST" autocomplete="">
         <h2>Signup Form</h2>
         <p>It's quick and easy.</p>
-        <input type="text" name="name" placeholder="Full Name" required >
-        <input type="email" name="email" placeholder="Email Address" required >
+          <?php
+            if(count($errors) == 1){
+                ?>
+                <div class="alert alert-danger">
+                    <?php
+                    foreach($errors as $showerror){
+                        echo $showerror;
+                    }
+                    ?>
+                </div>
+                <?php
+            }elseif(count($errors) > 1){
+                ?>
+                <div class="alert alert-danger">
+                    <?php
+                    foreach($errors as $showerror){
+                        ?>
+                        <li><?php echo $showerror; ?></li>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <?php
+            }
+            ?>
+        <input type="text" name="name" placeholder="Full Name" required value="<?php echo $name ?>">
+        <input type="email" name="email" placeholder="Email Address" required value="<?php echo $email ?>">
         <input type="password" name="password" placeholder="Password" required>
         <input type="password" name="cpassword" placeholder="Confirm password" required>
         <input class="button" type="submit" name="signup" value="Sign Up">

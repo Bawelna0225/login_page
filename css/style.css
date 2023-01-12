@@ -6,11 +6,34 @@
   font-family: "Poppins", sans-serif;
 }
 
+:root {
+  --primary-color: rgb(20, 20, 20);
+  --text-color: rgb(255, 255, 255);
+  --accent-color: rgb(205, 102, 81);
+  --hover-accent-color: rgb(184, 82, 64);
+  --input-border-color: rgb(179, 179, 179);
+  --shadow-color: rgba(7, 7, 7, 0.559);
+}
+
+:root {
+  --primary-color: rgb(255, 255, 255);
+  --text-color: rgb(0, 0, 0);
+  --accent-color: rgb(205, 102, 81);
+  --hover-accent-color: rgb(184, 82, 64);
+  --input-border-color: rgb(179, 179, 179);
+  --shadow-color: rgba(0, 0, 0, 0.113);
+}
+
 body {
   display: grid;
   place-content: center;
   height: 100vh;
-  background-color: rgb(81, 95, 205);
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--accent-color);
 }
 
 form {
@@ -18,11 +41,12 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 400px;
   gap: 15px;
-  background-color: #fff;
+  background-color: var(--primary-color);
   padding: 25px;
   border-radius: 4px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.209);
+  box-shadow: 0px 0px 10px var(--shadow-color);
 }
 form h2 {
   font-size: 1.8rem;
@@ -32,18 +56,101 @@ form input {
   padding: 8px 15px;
   width: 300px;
   border-radius: 4px;
-  border: 1px solid rgb(179, 179, 179);
+  background-color: var(--primary-color);
+  border: 1px solid var(--input-border-color);
+  color: var(--text-color);
   font-size: 0.8rem;
 }
 form .button {
-  background-color: rgb(81, 95, 205);
+  background-color: var(--accent-color);
   color: #fff;
   border: none;
 }
 form .button:hover {
-  background-color: rgb(64, 78, 184);
+  background-color: var(--hover-accent-color);
   cursor: pointer;
 }
 form p {
   font-size: 0.8rem;
+}
+
+.alert {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+.alert-danger {
+  background-color: rgb(237, 180, 180);
+  color: rgb(124, 28, 28);
+}
+.alert-success {
+  background-color: rgb(190, 237, 180);
+  color: rgb(28, 124, 28);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  place-content: center;
+}
+.wrapper a {
+  background-color: var(--primary-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+nav {
+  background-color: var(--accent-color);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.411);
+  width: 100vw;
+  top: 0;
+  height: 80px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 20px;
+  align-items: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+}
+nav button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  background-color: #fff;
+}
+nav button a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+nav button:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.home {
+  display: grid;
+  place-content: center;
+  height: calc(100vh - 80px);
+  background-color: var(--primary-color);
+}
+.home h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  color: var(--text-color);
+}
+.home h1 span {
+  color: var(--accent-color);
 }/*# sourceMappingURL=style.css.map */
