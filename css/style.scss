@@ -83,3 +83,22 @@ form {
 		color: rgb(28, 124, 28);
 	}
 }
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	align-items: center;
+	place-content: center;
+	a {
+		background-color: var(--primary-color);
+		border: 1px solid var(--accent-color);
+		border-radius: 8px;
+		padding: 8px 12px;
+		width: 100px;
+		cursor: pointer;
+		text-decoration: none;
+		text-align: center;
+	}
+}
+

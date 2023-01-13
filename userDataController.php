@@ -59,5 +59,4 @@ if(isset($_POST['signup'])){
             $errors['email'] = "It's look like you're not yet a member! Click on the bottom link to signup.";
         }
     }
-
 ?>
