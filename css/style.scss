@@ -102,3 +102,33 @@ form {
 	}
 }
 
+nav {
+	background-color: var(--accent-color);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.411);
+	width: 100vw;
+	top: 0;
+	height: 80px;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	padding-inline: 20px;
+	align-items: center;
+	a {
+		color: white;
+		text-decoration: none;
+	}
+	button {
+		padding: 8px 12px;
+		border-radius: 4px;
+		border: none;
+		background-color: #fff;
+		a {
+			color: var(--accent-color);
+			text-decoration: none;
+		}
+		&:hover {
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+			cursor: pointer;
+		}
+	}
+}
