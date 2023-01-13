@@ -1,0 +1,46 @@
+<?php require_once "userDataController.php"; ?>
+<?php 
+$email = $_SESSION['email'];
+if($email == false){
+  header('Location: login.php');
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Password</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form action="changepassword.php" method="POST" autocomplete="off">
+        <h2>Change Password</h2>
+        <?php 
+        if(isset($_SESSION['info'])){
+            ?>
+            <div class="alert alert-success text-center">
+                <?php echo $_SESSION['info']; ?>
+            </div>
+            <?php
+        }
+        ?>
+        <?php
+        if(count($errors) > 0){
+            ?>
+            <div class="alert alert-danger text-center">
+                <?php
+                foreach($errors as $showerror){
+                    echo $showerror;
+                }
+                ?>
+            </div>
+            <?php
+        }
+        ?>
+            <input class="form-control" type="password" name="password" placeholder="Create new password" required>    
+            <input class="form-control" type="password" name="cpassword" placeholder="Confirm your password" required>
+            <input class="form-control button" type="submit" name="change-password" value="Change">
+            <a href="home.php">I changed my mind</a>
+    </form>
+</body>
+</html>
