@@ -138,4 +138,19 @@ nav button a {
 nav button:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+
+.home {
+  display: grid;
+  place-content: center;
+  height: calc(100vh - 80px);
+  background-color: var(--primary-color);
+}
+.home h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  color: var(--text-color);
+}
+.home h1 span {
+  color: var(--accent-color);
 }/*# sourceMappingURL=style.css.map */

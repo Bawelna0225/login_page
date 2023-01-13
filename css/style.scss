@@ -132,3 +132,17 @@ nav {
 		}
 	}
 }
+.home {
+	display: grid;
+	place-content: center;
+	height: calc(100vh - 80px);
+	background-color: var(--primary-color);
+	h1 {
+		font-size: 3rem;
+		font-weight: normal;
+		color: var(--text-color);
+		span {
+			color: var(--accent-color);
+		}
+	}
+}
