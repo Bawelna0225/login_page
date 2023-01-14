@@ -28,6 +28,12 @@ if($email != false && $password != false){
         <a class="logo" href="#">LOGO</a>
         <p class='username'><?php echo $fetch_info['name'] ?></p>
         <button class='user-logo'></button>
+        <div class="dropdown">
+            <ul>
+                <li><a href="changepassword.php"><span class="material-symbols-outlined">lock_reset</span>Change Your Password</a></li>
+                <li><a href="logout.php"><span class="material-symbols-outlined">logout</span> Log out</a></li>
+            </ul>
+        </div>
     </nav>
 
     <div class="home">
