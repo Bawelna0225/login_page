@@ -18,17 +18,18 @@ if($email != false && $password != false){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="./script.js" defer></script>
     <title><?php echo $fetch_info['name'] ?> | Home</title>
 </head>
 <body>
-    <nav class="navbar">
-        <a class="navbar-brand" href="#">Brand name</a>
-        <div class="buttons">
-            <button type="button" class="btn">Settings</button>
-            <button type="button" class="btn"><a href="logout.php">Logout</a></button>
-        </div>
+    <nav>
+        <a class="logo" href="#">LOGO</a>
+        <p class='username'><?php echo $fetch_info['name'] ?></p>
+        <button class='user-logo'></button>
     </nav>
+
     <div class="home">
         <h1>Welcome <span><?php echo $fetch_info['name'] ?></span></h1>
     </div>

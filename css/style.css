@@ -120,24 +120,27 @@ nav {
   justify-content: space-between;
   padding-inline: 20px;
   align-items: center;
+  position: relative;
 }
 nav a {
   color: white;
   text-decoration: none;
 }
 nav button {
-  padding: 8px 12px;
-  border-radius: 4px;
+  border-radius: 50%;
+  width: 40px;
+  text-align: center;
+  height: 40px;
   border: none;
   background-color: #fff;
-}
-nav button a {
   color: var(--accent-color);
-  text-decoration: none;
 }
 nav button:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+nav .username {
+  display: none;
 }
 
 .home {
