@@ -46,6 +46,9 @@ form {
 		font-size: 1.8rem;
 		font-weight: normal;
 	}
+	.input {
+		position: relative;
+	}
 	input {
 		padding: 8px 15px;
 		width: 300px;
@@ -54,6 +57,16 @@ form {
 		border: 1px solid var(--input-border-color);
 		color: var(--text-color);
 		font-size: 0.8rem;
+		&.password {
+			& ~ span {
+				position: absolute;
+				right: 10px;
+				top: 50%;
+				translate: 0% -50%;
+				user-select: none;
+				cursor: pointer;
+			}
+		}
 	}
 	.button {
 		background-color: var(--accent-color);
@@ -68,6 +81,7 @@ form {
 		font-size: 0.8rem;
 	}
 }
+
 .alert {
 	width: 100%;
 	max-width: 400px;

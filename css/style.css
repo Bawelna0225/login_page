@@ -52,6 +52,9 @@ form h2 {
   font-size: 1.8rem;
   font-weight: normal;
 }
+form .input {
+  position: relative;
+}
 form input {
   padding: 8px 15px;
   width: 300px;
@@ -60,6 +63,17 @@ form input {
   border: 1px solid var(--input-border-color);
   color: var(--text-color);
   font-size: 0.8rem;
+}
+form input.password ~ span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  translate: 0% -50%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
 }
 form .button {
   background-color: var(--accent-color);
