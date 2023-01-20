@@ -111,3 +111,25 @@ if(isset($_POST['signup'])){
         }
     }
 ?>
+
+<?php
+if(isset($_POST['delete-picture'])){
+    $email = $_SESSION['email'];
+    $sql = "SELECT * FROM userdata WHERE email = '$email'";
+    $get_pic_name = mysqli_query($connection, $sql);
+    $pic_name = mysqli_fetch_assoc($get_pic_name)['picture'];
+    $status = unlink("upload/$pic_name");    
+    if($status){  
+        echo "File deleted successfully";    
+    }else{  
+        echo "Sorry!";    
+    } 
+    $delete_pic = "UPDATE userdata SET picture = '' WHERE email = '$email'";
+    $run_query = mysqli_query($connection, $delete_pic);
+    if($run_query){
+        header('Location: home.php');
+    }else{
+        $errors['db-error'] = "Failed to delete your picture!";
+    }
+}
+?>
