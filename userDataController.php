@@ -83,3 +83,31 @@ if(isset($_POST['signup'])){
         }
     }
 ?>
+
+
+<?php
+    if(isset($_POST['crop_image'])){
+        // delete old picture
+        $email = $_SESSION['email'];
+        $sql = "SELECT * FROM userdata WHERE email = '$email'";
+        $get_pic_name = mysqli_query($connection, $sql);
+        $pic_name = mysqli_fetch_assoc($get_pic_name)['picture'];
+        if($pic_name != '') {
+            unlink("upload/$pic_name"); 
+        }
+        $data = $_POST['crop_image'];
+        $image_array_1 = explode(";", $data);
+        $image_array_2 = explode(",", $image_array_1[1]);
+        $base64_decode = base64_decode($image_array_2[1]);
+        $path_img = 'upload/'.time().'.png';
+        $imagename = ''.time().'.png';
+        file_put_contents($path_img, $base64_decode);
+        $update_pic = "UPDATE userdata SET picture = '$imagename' WHERE email = '$email'";
+        $run_query = mysqli_query($connection, $update_pic);
+        if($run_query){
+            header('Location: home.php');
+        }else{
+            $errors['db-error'] = "Failed to change your picture!";
+        }
+    }
+?>
