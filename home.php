@@ -27,7 +27,16 @@ if($email != false && $password != false){
     <nav>
         <a class="logo" href="#">LOGO</a>
         <p class='username'><?php echo $fetch_info['name'] ?></p>
-        <button class='user-logo'></button>
+        
+            
+            <?php 
+                if($fetch_info['picture'] == '') {
+                   echo "<button class='user-logo' id='user-logo'></button>";
+                } else {
+                    echo '<button class="user-logo"><img class="user-logo" src="upload/'. $fetch_info['picture'].'"></button>';
+                }
+            ?>
+        
         <div class="dropdown">
             <ul>
                 <li><a href="changepicture.php"><span class="material-symbols-outlined">image</span>Change Profile Picture</a></li>
