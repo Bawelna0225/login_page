@@ -125,7 +125,7 @@ nav {
 	color: white;
 	display: flex;
 	justify-content: space-between;
-	padding-inline: 20px;
+	padding-inline: 25px;
 	align-items: center;
 	position: relative;
 	a {
@@ -133,7 +133,7 @@ nav {
 		text-decoration: none;
 	}
 	button {
-		border-radius: 50%;
+		border-radius: 8px;
 		width: 40px;
 		text-align: center;
 		height: 40px;
@@ -141,9 +141,10 @@ nav {
 		justify-content: center;
 		align-items: center;
 		overflow: hidden;
-		border: none;
+		border: 1px solid white;
 		background-color: var(--primary-color);
 		color: var(--accent-color);
+		position: relative;
 		&:hover {
 			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 			cursor: pointer;
@@ -162,7 +163,7 @@ nav {
 		background-color: var(--accent-color);
 		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 		border-radius: 4px;
-		right: 15px;
+		right: 20px;
 		top: 0;
 		opacity: 0;
 		pointer-events: none;
