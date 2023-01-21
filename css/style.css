@@ -226,4 +226,96 @@ nav .dropdown ul li a:hover {
 }
 .home h1 span {
   color: var(--accent-color);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-block: 20px;
+}
+.wrapper img {
+  display: block;
+  max-width: 100%;
+}
+.wrapper form {
+  width: 100%;
+}
+.wrapper form input {
+  width: 100%;
+  font-size: 1.3rem;
+}
+.wrapper form button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid rgb(182, 30, 30);
+  background-color: transparent;
+  color: rgb(182, 30, 30);
+}
+.wrapper form button:hover {
+  background-color: rgb(182, 30, 30);
+  color: white;
+}
+.wrapper .modal-content {
+  padding: 10px !important;
+  background-color: var(--primary-color);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 4px;
+  max-width: calc(100vw - 2rem);
+}
+.wrapper .modal-content .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.wrapper .modal-content .modal-header button {
+  background-color: rgb(239, 239, 239);
+  border: none;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+.wrapper .modal-content .modal-body {
+  display: flex;
+}
+.wrapper .modal-content .modal-body .img-container {
+  max-width: 1000px;
+}
+.wrapper .modal-content .modal-body .preview {
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  margin-block: 10px;
+  border: 1px solid var(--accent-color);
+  border-radius: 10px;
+}
+.wrapper .modal-content .modal-footer {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.wrapper .modal-content .modal-footer button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.wrapper .modal-content .modal-footer button.primary {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+}
+.wrapper .modal-content .modal-footer button.primary:hover {
+  background-color: var(--hover-accent-color);
+}
+.wrapper .modal-content .modal-footer button.secondary {
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+.wrapper .modal-content .modal-footer button.secondary:hover {
+  color: var(--hover-accent-color);
+  border: 1px solid var(--hover-accent-color);
 }/*# sourceMappingURL=style.css.map */

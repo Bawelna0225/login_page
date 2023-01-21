@@ -17,6 +17,7 @@ if($email != false && $password != false){
 <head>
     <title>Change Picture</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
     <link rel="stylesheet" href="https://fengyuanchen.github.io/cropperjs/css/cropper.css" />
@@ -77,22 +78,6 @@ if($email != false && $password != false){
         });
     });
 </script>
-<style>
-    img {
-        display: block;
-        max-width: 100%;
-    }
-    .preview {
-        overflow: hidden;
-        width: 160px; 
-        height: 160px;
-        margin: 10px;
-        border: 1px solid red;
-    }
-    .modal-lg{
-        max-width: 1000px !important;
-    }
-</style>
 </head>
     <body>
         <?php
@@ -108,48 +93,44 @@ if($email != false && $password != false){
             <?php
         }
         ?>
-        <div class="container" align="center">
+        <div class="wrapper">
             <br />
-            <h3 align="center">Change Your profile picture</h3>
+            <h2>Change Your profile picture</h2>
             <br />
-            <div class="row">
             <form method="post">
                 <input type="file" name="crop_image" class="crop_image" id="upload_image" />
             </form>
-            <div class="modal fade" id="modal_crop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
+            <div class="modal" id="modal_crop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Crop Image Before Upload</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">x</span>
-                            </button>
+                            <h3 class="modal-title">Crop Image Before Upload</h3>
                         </div>
                         <div class="modal-body">
                             <div class="img-container">
                                 <div class="row">
-                                    <div class="col-md-8">
+                                    <div>
                                         <img src="" id="sample_image" />
                                     </div>
-                                    <div class="col-md-4">
+                                    <div>
                                         <div class="preview"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="crop_and_upload" class="btn btn-primary">Crop</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class='primary' id="crop_and_upload">Crop</button>
+                            <button type="button" class='secondary' data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
-            </div>            
-        </div>
-        <?php 
+            </div>    
+                    <?php 
             if($fetch_info['picture'] != '') {
                 echo "<form method='post'><button name='delete-picture'>Delete Picture</button></form>";
             }
         ?>
-        <a href="home.php">Go to Home</a>
+        </div>
+        <a style='text-align: center;' href="home.php">Go to Home</a>        
     </body>
 </html>
