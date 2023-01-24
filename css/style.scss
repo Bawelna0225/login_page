@@ -6,20 +6,22 @@
 	font-family: 'Poppins', sans-serif;
 }
 :root {
-	--primary-color: rgb(20, 20, 20);
-	--text-color: rgb(255, 255, 255);
-	--accent-color: rgb(205, 102, 81);
-	--hover-accent-color: rgb(184, 82, 64);
-	--input-border-color: rgb(179, 179, 179);
-	--shadow-color: rgba(7, 7, 7, 0.559);
-}
-:root {
 	--primary-color: rgb(255, 255, 255);
 	--text-color: rgb(0, 0, 0);
 	--accent-color: rgb(205, 102, 81);
 	--hover-accent-color: rgb(184, 82, 64);
 	--input-border-color: rgb(179, 179, 179);
 	--shadow-color: rgba(0, 0, 0, 0.113);
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--primary-color: rgb(20, 20, 20);
+		--text-color: rgb(255, 255, 255);
+		--accent-color: rgb(205, 102, 81);
+		--hover-accent-color: rgb(184, 82, 64);
+		--input-border-color: rgb(179, 179, 179);
+		--shadow-color: rgba(7, 7, 7, 0.559);
+	}
 }
 body {
 	display: grid;
@@ -227,9 +229,9 @@ nav {
 	align-items: center;
 	margin-block: 20px;
 	img {
-        display: block;
-        max-width: 100%;
-    }
+		display: block;
+		max-width: 100%;
+	}
 	form {
 		width: 100%;
 		input {
@@ -245,7 +247,6 @@ nav {
 			&:hover {
 				background-color: rgb(182, 30, 30);
 				color: white;
-
 			}
 		}
 	}
