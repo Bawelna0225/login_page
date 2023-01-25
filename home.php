@@ -48,24 +48,63 @@ if($email != false && $password != false){
 
     <div class="home">
         <h1>Welcome <span><?php echo $fetch_info['name'] ?></span></h1>
-        <?php 
+         <div class="cards">
+            <?php 
 
-            $sql2 = "SELECT * FROM userdata WHERE email = '$email'";
-            $run_sql2 = mysqli_query($connection, $sql2);
-            $fetch_info = mysqli_fetch_assoc($run_sql2);
-            $id = $fetch_info['id'];
+                $sql2 = "SELECT * FROM userdata WHERE email = '$email'";
+                $run_sql2 = mysqli_query($connection, $sql2);
+                $fetch_info = mysqli_fetch_assoc($run_sql2);
+                $id = $fetch_info['id'];
 
-            $sql3 = "SELECT * FROM userposts WHERE author_id='$id'";
-            $fetch_posts = mysqli_query($connection, $sql3);
-            while ($row = mysqli_fetch_assoc($fetch_posts))
-            {
-                echo "<h2>".$row['title']."</h2>";
-                echo "<p>".$row['content']."</p>";
-                echo "<small>".$row['date_created']."</small>";
-                echo "<b>".$fetch_info['name']."</b>";
-            }
-        ?>
+                $sql3 = "SELECT * FROM userposts WHERE author_id='$id'";
+                $fetch_posts = mysqli_query($connection, $sql3);
+                while ($row = mysqli_fetch_assoc($fetch_posts))
+                {
+                    echo "<div class='card'>";
+                        echo "<h2>".$row['title']."</h2>";
+                        echo "<p>".$row['content']."</p>";
+                        echo "<div class='bottom'>";
+                            echo "<small>".$row['date_created']."</small>";
+                            echo "<b>".$fetch_info['name']."</b>";
+                        echo "</div>";
+                    echo "</div>";
+                }
+            ?>
+            <div class="card">
+                <h2>Title</h2>
+                <p>card content</p>
+                <div class="bottom">
+                    <small>date created</small>
+                    <b>Author name</b>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Title</h2>
+                <p>card content</p>
+                <div class="bottom">
+                    <small>date created</small>
+                    <b>Author name</b>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Title</h2>
+                <p>card content</p>
+                <div class="bottom">
+                    <small>date created</small>
+                    <b>Author name</b>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Title</h2>
+                <p>card content</p>
+                <div class="bottom">
+                    <small>date created</small>
+                    <b>Author name</b>
+                </div>
+            </div>
+        </div>
     </div>
+   
 
 </body>
 </html>

@@ -15,16 +15,6 @@
   --shadow-color: rgba(0, 0, 0, 0.113);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: rgb(20, 20, 20);
-    --text-color: rgb(255, 255, 255);
-    --accent-color: rgb(205, 102, 81);
-    --hover-accent-color: rgb(184, 82, 64);
-    --input-border-color: rgb(179, 179, 179);
-    --shadow-color: rgba(7, 7, 7, 0.559);
-  }
-}
 body {
   display: grid;
   place-content: center;
