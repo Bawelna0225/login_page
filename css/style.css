@@ -351,4 +351,10 @@ nav .dropdown ul li a:hover {
 .wrapper .modal-content .modal-footer button.secondary:hover {
   color: var(--hover-accent-color);
   border: 1px solid var(--hover-accent-color);
+}
+
+@media (width < 550px) {
+  .home {
+    place-content: start;
+  }
 }/*# sourceMappingURL=style.css.map */

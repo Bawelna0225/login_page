@@ -345,3 +345,9 @@ nav {
 		}
 	}
 }
+
+@media (width < 550px) {
+	.home {
+		place-content: start;
+	}
+}
