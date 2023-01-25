@@ -82,6 +82,27 @@ if(isset($_POST['signup'])){
             }
         }
     }
+    // Create post
+    if(isset($_POST['create_post'])){
+        $_SESSION['info'] = "";
+        $postTitle = mysqli_real_escape_string($connection, $_POST['post_title']);
+        $postContent = mysqli_real_escape_string($connection, $_POST['post_content']);
+        
+        $email = $_SESSION['email']; //getting this email using session
+        $sql2 = "SELECT * FROM userdata WHERE email = '$email'";
+        $run_sql2 = mysqli_query($connection, $sql2);
+        $fetch_info = mysqli_fetch_assoc($run_sql2);
+        $authorId = $fetch_info['id'];
+        $current_date = date('Y-m-d');
+        $insert_post = "INSERT INTO userposts (post_id, author_id, title, content, date_created) VALUES (NULL, $authorId, '$postTitle', '$postContent', '$current_date')";
+        $run_query = mysqli_query($connection, $insert_post);
+        if($run_query){
+            header('Location: home.php');
+        }else{
+            $errors['db-error'] = "Failed to create post!";
+        }
+        
+    }
 ?>
 
 

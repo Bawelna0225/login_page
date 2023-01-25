@@ -24,15 +24,6 @@ if($email != false && $password != false){
 <body>
         <form action="createpost.php" method="POST" autocomplete="off">
         <h2>Create New Post</h2>
-        <?php 
-        if(isset($_SESSION['info'])){
-            ?>
-            <div class="alert alert-success text-center">
-                <?php echo $_SESSION['info']; ?>
-            </div>
-            <?php
-        }
-        ?>
         <?php
         if(count($errors) > 0){
             ?>
@@ -48,7 +39,7 @@ if($email != false && $password != false){
         ?>
             <input class="form-control" type="text" name="post_title" placeholder="Post Title" required>    
             <textarea class="form-control" name="post_content" placeholder="Post Content"></textarea>
-            <input class="form-control button" type="submit" name="change-password" value="Create">
+            <input class="form-control button" type="submit" name="create_post" value="Create">
             <a href="home.php">I changed my mind</a>
     </form>
 </body>
