@@ -141,6 +141,25 @@ nav a {
   color: white;
   text-decoration: none;
 }
+nav .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+nav .buttons a {
+  background-color: var(--primary-color);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 8px;
+  border-radius: 4px;
+  color: var(--text-color);
+}
+nav .buttons a:hover {
+  color: var(--accent-color);
+}
 nav button {
   border-radius: 8px;
   width: 40px;

@@ -134,6 +134,25 @@ nav {
 		color: white;
 		text-decoration: none;
 	}
+	.buttons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap:  20px;
+		a {
+			background-color: var(--primary-color);
+			height: 40px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-inline: 8px;
+			border-radius: 4px;
+			color: var(--text-color);
+			&:hover {
+				color: var(--accent-color);
+			}
+		}
+	}
 	button {
 		border-radius: 8px;
 		width: 40px;
