@@ -29,7 +29,7 @@ if($email != false && $password != false){
         <p class='username'><?php echo $fetch_info['name'] ?></p>
         
         <div class="buttons">
-            <a href="#">Create Post</a>
+            <a href="createpost.php">Create Post</a>
             <?php 
                 if($fetch_info['picture'] == '') {
                    echo "<button class='user-logo' id='user-logo'></button>";
