@@ -13,16 +13,16 @@
 	--input-border-color: rgb(179, 179, 179);
 	--shadow-color: rgba(0, 0, 0, 0.113);
 }
-// @media (prefers-color-scheme: dark) {
-// 	:root {
-// 		--primary-color: rgb(20, 20, 20);
-// 		--text-color: rgb(255, 255, 255);
-// 		--accent-color: rgb(205, 102, 81);
-// 		--hover-accent-color: rgb(184, 82, 64);
-// 		--input-border-color: rgb(179, 179, 179);
-// 		--shadow-color: rgba(7, 7, 7, 0.559);
-// 	}
-// }
+@media (prefers-color-scheme: dark) {
+	:root {
+		--primary-color: rgb(20, 20, 20);
+		--text-color: rgb(255, 255, 255);
+		--accent-color: rgb(205, 102, 81);
+		--hover-accent-color: rgb(184, 82, 64);
+		--input-border-color: rgb(179, 179, 179);
+		--shadow-color: rgba(7, 7, 7, 0.559);
+	}
+}
 body {
 	display: grid;
 	place-content: center;
@@ -214,10 +214,42 @@ nav {
 	background-color: var(--primary-color);
 	h1 {
 		font-size: 3rem;
+		padding: 20px;
 		font-weight: normal;
 		color: var(--text-color);
 		span {
 			color: var(--accent-color);
+		}
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 20px;
+		padding: 20px;
+		.card {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			border: 1px solid rgb(114, 114, 114);
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+			border-radius: 4px;
+			padding: 10px;
+			gap: 10px;
+			h2 {
+				color: var(--accent-color);
+				font-weight: normal;
+			}
+			p {
+				word-break: break-all;
+			}
+			.bottom {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				b {
+					color: var(--accent-color);
+				}
+			}
 		}
 	}
 }
