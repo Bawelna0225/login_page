@@ -1,4 +1,11 @@
-
+<?php require_once "userDataController.php"; ?>
+<?php  
+    if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+        echo  $_SESSION['email'];
+    } else {
+        echo "nima sysji";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
