@@ -236,7 +236,9 @@ nav {
 		}
 	}
 }
-
+section {
+	height: calc(100vh - 80px);
+}
 .home {
 	display: grid;
 	place-content: center;

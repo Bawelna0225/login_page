@@ -234,6 +234,10 @@ nav .dropdown ul li a:hover {
   background-color: var(--hover-accent-color);
 }
 
+section {
+  height: calc(100vh - 80px);
+}
+
 .home {
   display: grid;
   place-content: center;
