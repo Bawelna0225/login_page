@@ -2,6 +2,17 @@
 <?php  
     if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
         $isUserLoggedIn = true;
+        $email = $_SESSION['email'];
+        $password = $_SESSION['password'];
+        if($email != false && $password != false){
+            $sql = "SELECT * FROM userdata WHERE email = '$email'";
+            $run_Sql = mysqli_query($connection, $sql);
+            if($run_Sql){
+                $fetch_info = mysqli_fetch_assoc($run_Sql);
+            }
+        }else{
+            header('Location: login.php');
+        }
     } else {
         $isUserLoggedIn = false;
     }
@@ -13,6 +24,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <?php 
+        if ($isUserLoggedIn) {
+        ?>
+            <script src="./script.js" defer></script>
+        <?php
+        }
+    ?>
     <title>Document</title>
 </head>
 <body>
@@ -23,7 +42,7 @@
                 ?>
                 <p class='username'><?php echo $fetch_info['name'] ?></p>
                 <div class="buttons">
-                    <a href="createpost.php">Create Post</a>
+                    <a href="createpost.php"><span class="material-symbols-outlined">post_add</span>Create Post</a>
                     <?php 
                         if($fetch_info['picture'] == '') {
                         echo "<button class='user-logo' id='user-logo'></button>";
