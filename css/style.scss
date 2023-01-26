@@ -251,6 +251,9 @@ nav {
 			color: var(--accent-color);
 		}
 	}
+	h3 {
+		padding-inline: 20px;
+	}
 	.cards {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -261,7 +264,7 @@ nav {
 			flex-direction: column;
 			justify-content: space-between;
 			border: 1px solid rgb(114, 114, 114);
-			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 			border-radius: 4px;
 			padding: 10px;
 			gap: 10px;

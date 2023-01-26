@@ -49,6 +49,7 @@ if($email != false && $password != false){
 
     <div class="home">
         <h1>Welcome <span><?php echo $fetch_info['name'] ?></span></h1>
+        <h3>Your Posts</h3>
          <div class="cards">
             <?php 
 
@@ -71,38 +72,6 @@ if($email != false && $password != false){
                     echo "</div>";
                 }
             ?>
-            <div class="card">
-                <h2>Title</h2>
-                <p>card content</p>
-                <div class="bottom">
-                    <small>date created</small>
-                    <b>Author name</b>
-                </div>
-            </div>
-            <div class="card">
-                <h2>Title</h2>
-                <p>card content</p>
-                <div class="bottom">
-                    <small>date created</small>
-                    <b>Author name</b>
-                </div>
-            </div>
-            <div class="card">
-                <h2>Title</h2>
-                <p>card content</p>
-                <div class="bottom">
-                    <small>date created</small>
-                    <b>Author name</b>
-                </div>
-            </div>
-            <div class="card">
-                <h2>Title</h2>
-                <p>card content</p>
-                <div class="bottom">
-                    <small>date created</small>
-                    <b>Author name</b>
-                </div>
-            </div>
         </div>
     </div>
    
