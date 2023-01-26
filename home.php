@@ -25,7 +25,7 @@ if($email != false && $password != false){
 </head>
 <body>
     <nav>
-        <a class="logo" href="#">LOGO</a>
+        <a class="logo" href="index.php">LOGO</a>
         <p class='username'><?php echo $fetch_info['name'] ?></p>
         
         <div class="buttons">

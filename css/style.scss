@@ -237,10 +237,7 @@ nav {
 		}
 	}
 }
-section {
-	height: calc(100vh - 80px);
-}
-.home {
+.home, section {
 	display: grid;
 	place-content: center;
 	height: calc(100vh - 80px);
@@ -382,8 +379,8 @@ section {
 	}
 }
 
-@media (width < 550px) {
-	.home {
+@media (width < 720px) {
+	.home, section {
 		place-content: start;
 	}
 }

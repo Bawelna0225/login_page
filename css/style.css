@@ -235,35 +235,31 @@ nav .dropdown ul li a:hover {
   background-color: var(--hover-accent-color);
 }
 
-section {
-  height: calc(100vh - 80px);
-}
-
-.home {
+.home, section {
   display: grid;
   place-content: center;
   height: calc(100vh - 80px);
   background-color: var(--primary-color);
 }
-.home h1 {
+.home h1, section h1 {
   font-size: 3rem;
   padding: 20px;
   font-weight: normal;
   color: var(--text-color);
 }
-.home h1 span {
+.home h1 span, section h1 span {
   color: var(--accent-color);
 }
-.home h3 {
+.home h3, section h3 {
   padding-inline: 20px;
 }
-.home .cards {
+.home .cards, section .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 20px;
   padding: 20px;
 }
-.home .cards .card {
+.home .cards .card, section .cards .card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -273,19 +269,19 @@ section {
   padding: 10px;
   gap: 10px;
 }
-.home .cards .card h2 {
+.home .cards .card h2, section .cards .card h2 {
   color: var(--accent-color);
   font-weight: normal;
 }
-.home .cards .card p {
+.home .cards .card p, section .cards .card p {
   word-break: break-all;
 }
-.home .cards .card .bottom {
+.home .cards .card .bottom, section .cards .card .bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.home .cards .card .bottom b {
+.home .cards .card .bottom b, section .cards .card .bottom b {
   color: var(--accent-color);
 }
 
@@ -381,8 +377,8 @@ section {
   border: 1px solid var(--hover-accent-color);
 }
 
-@media (width < 550px) {
-  .home {
+@media (width < 720px) {
+  .home, section {
     place-content: start;
   }
 }/*# sourceMappingURL=style.css.map */

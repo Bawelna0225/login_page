@@ -36,7 +36,7 @@
 </head>
 <body>
     <nav>
-        <a class="logo" href="#">LOGO</a>
+        <a class="logo" href="index.php">LOGO</a>
         <?php
             if ($isUserLoggedIn) {
                 ?>
@@ -53,6 +53,7 @@
                 </div>
                 <div class="dropdown">
                     <ul>
+                        <li><a href="home.php"><span class="material-symbols-outlined">cottage</span>Go to Home</a></li>
                         <li><a href="changepicture.php"><span class="material-symbols-outlined">image</span>Change Profile Picture</a></li>
                         <li><a href="changepassword.php"><span class="material-symbols-outlined">lock_reset</span>Change Your Password</a></li>
                         <li><a href="logout.php"><span class="material-symbols-outlined">logout</span> Log out</a></li>
@@ -62,12 +63,34 @@
             } else {
                 echo '
                 <div class="buttons">
-                    <a href="login.php">Log In</a>
-                    <a href="sign_up.php">Sign Up</a>
+                    <a href="login.php"><span class="material-symbols-outlined">login</span>Log In</a>
+                    <a href="sign_up.php"><span class="material-symbols-outlined">person_add</span>Sign Up</a>
                 </div>';
             } 
         ?>
     </nav>
-    <section></section>
+    <section>
+           <div class="cards">
+            <?php 
+                $sql3 = "SELECT * FROM userposts";
+                $fetch_posts = mysqli_query($connection, $sql3);
+                while ($row = mysqli_fetch_assoc($fetch_posts))
+                {
+                    echo "<div class='card'>";
+                        echo "<h2>".$row['title']."</h2>";
+                        echo "<p>".$row['content']."</p>";
+                        echo "<div class='bottom'>";
+                            echo "<small>".$row['date_created']."</small>";
+                            $authorId = $row['author_id'];
+                            $select_author = "SELECT * FROM userdata WHERE id='$authorId'";
+                            $run_sql = mysqli_query($connection, $select_author);
+                            $fetch_info = mysqli_fetch_assoc($run_sql);
+                            echo "<b>". $fetch_info['name']."</b>";
+                        echo "</div>";
+                    echo "</div>";
+                }
+            ?>
+        </div>
+    </section>
 </body>
 </html>
