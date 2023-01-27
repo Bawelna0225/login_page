@@ -39,7 +39,7 @@ if($email != false && $password != false){
         }
         ?>
         <div class="buttons">
-            <button type='submit'>Confirm</button>
+            <button type='submit' name='confirm-delete'>Confirm</button>
             <a href='home.php'>Cancel</a>
         </div>
     </form>

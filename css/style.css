@@ -39,6 +39,29 @@ form {
   border-radius: 4px;
   box-shadow: 0px 0px 10px var(--shadow-color);
 }
+form.delete-post .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+form.delete-post .buttons button {
+  padding: 6px 12px;
+  background-color: var(--primary-color);
+  border: 1px solid rgb(162, 36, 36);
+  color: rgb(162, 36, 36);
+  border-radius: 4px;
+}
+form.delete-post .buttons button:hover {
+  cursor: pointer;
+  background-color: rgb(162, 36, 36);
+  color: white;
+}
+form.delete-post .buttons a {
+  border-radius: 4px;
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid var(--accent-color);
+}
 form h2 {
   font-size: 1.8rem;
   font-weight: normal;
