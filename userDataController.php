@@ -103,10 +103,28 @@ if(isset($_POST['signup'])){
         } 
     }
 
+    // Edit post
+    if(isset($_POST['edit_post'])){
+        $_SESSION['info'] = "";
+
+        $postId = mysqli_real_escape_string($connection, $_POST['post-id']);
+        $postTitle = mysqli_real_escape_string($connection, $_POST['post_title']);
+        $postContent = mysqli_real_escape_string($connection, $_POST['post_content']);
+    
+        $current_date = date('Y-m-d');
+        $update_post = "UPDATE userposts SET title = '$postTitle', content = '$postContent', date_created = '$current_date' WHERE post_id = $postId";
+        $run_query = mysqli_query($connection, $update_post);
+        if($run_query){
+            header('Location: home.php');
+        }else{
+            $errors['db-error'] = "Failed to edit post!";
+        } 
+    }
+
     // Delete post
     if(isset($_POST['confirm-delete'])){
         $_SESSION['info'] = "";
-        $email = $_SESSION['email'];
+        
         $postId = mysqli_real_escape_string($connection, $_POST['confirm-post-id']);
         
         $delete = "DELETE FROM userposts WHERE post_id = $postId";
