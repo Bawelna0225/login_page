@@ -100,8 +100,7 @@ if(isset($_POST['signup'])){
             header('Location: home.php');
         }else{
             $errors['db-error'] = "Failed to create post!";
-        }
-        
+        } 
     }
 
     // Delete post
