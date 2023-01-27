@@ -255,7 +255,7 @@ nav .dropdown ul li a:hover {
 }
 .home .cards, section .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 20px;
   padding: 20px;
 }
@@ -273,7 +273,7 @@ nav .dropdown ul li a:hover {
   color: var(--accent-color);
   font-weight: normal;
 }
-.home .cards .card p, section .cards .card p {
+.home .cards .card pre, section .cards .card pre {
   word-break: break-all;
 }
 .home .cards .card .bottom, section .cards .card .bottom {
