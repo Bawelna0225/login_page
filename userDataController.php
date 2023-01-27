@@ -103,6 +103,22 @@ if(isset($_POST['signup'])){
         }
         
     }
+
+    // Delete post
+    if(isset($_POST['confirm-delete'])){
+        $_SESSION['info'] = "";
+        $email = $_SESSION['email'];
+        $postId = mysqli_real_escape_string($connection, $_POST['confirm-post-id']);
+        
+        $delete = "DELETE FROM userposts WHERE post_id = $postId";
+        $run_query = mysqli_query($connection, $delete);
+        if($run_query){
+            header('Location: home.php');
+        }else{
+            $errors['db-error'] = "Failed to delete post!";
+        }
+        
+    }
 ?>
 
 
