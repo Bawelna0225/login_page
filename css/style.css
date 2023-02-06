@@ -137,6 +137,11 @@ form p {
   align-items: center;
   place-content: center;
 }
+.wrapper img {
+  width: 150px;
+  border-radius: 8px;
+  border: 2px solid var(--accent-color);
+}
 .wrapper a {
   background-color: var(--primary-color);
   border: 1px solid var(--accent-color);
