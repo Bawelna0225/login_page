@@ -270,7 +270,7 @@ nav {
 .home,
 section {
 	display: grid;
-	place-content: center;
+	justify-content: center;
 	height: calc(100vh - 80px);
 	background-color: var(--primary-color);
 	h1 {
@@ -348,6 +348,16 @@ section {
 				b {
 					color: var(--accent-color);
 				}
+			}
+			.author {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 5px;
+			}
+			.author_pic {
+				width: 35px;
+				border-radius: 8px;
 			}
 		}
 	}

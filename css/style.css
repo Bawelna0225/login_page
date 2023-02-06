@@ -266,7 +266,7 @@ nav .dropdown ul li a:hover {
 .home,
 section {
   display: grid;
-  place-content: center;
+  justify-content: center;
   height: calc(100vh - 80px);
   background-color: var(--primary-color);
 }
@@ -365,6 +365,18 @@ section .cards .card .bottom {
 .home .cards .card .bottom b,
 section .cards .card .bottom b {
   color: var(--accent-color);
+}
+.home .cards .card .author,
+section .cards .card .author {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.home .cards .card .author_pic,
+section .cards .card .author_pic {
+  width: 35px;
+  border-radius: 8px;
 }
 
 .wrapper {

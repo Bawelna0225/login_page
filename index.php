@@ -85,7 +85,8 @@
                             $select_author = "SELECT * FROM userdata WHERE id='$authorId'";
                             $run_sql = mysqli_query($connection, $select_author);
                             $fetch_info = mysqli_fetch_assoc($run_sql);
-                            echo "<b>". $fetch_info['name']."</b>";
+                            echo "<div class='author'><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
+                            echo "<b>". $fetch_info['name']."</b></div>";
                         echo "</div>";
                     echo "</div>";
                 }
