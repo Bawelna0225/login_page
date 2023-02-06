@@ -95,6 +95,7 @@ if($email != false && $password != false){
         ?>
         <div class="wrapper">
             <br />
+            <img class="user-logo" src="upload/<?php echo $fetch_info['picture']?>">
             <h2>Change Your profile picture</h2>
             <br />
             <form method="post">
