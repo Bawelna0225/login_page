@@ -70,7 +70,8 @@ if($email != false && $password != false){
                         data:{crop_image:base64data},
                         success:function(data)
                         {
-                            $modal.modal('hide'); 
+                            $modal.modal('hide');
+                            location.reload() 
                         }
                     });
                 };
