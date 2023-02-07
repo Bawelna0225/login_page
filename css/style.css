@@ -352,9 +352,29 @@ section .cards .card h2 {
   color: var(--accent-color);
   font-weight: normal;
 }
-.home .cards .card pre,
-section .cards .card pre {
-  word-break: break-all;
+.home .cards .card p,
+section .cards .card p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.home .cards .card .read-more,
+section .cards .card .read-more {
+  box-shadow: none !important;
+  padding: 0;
+  margin: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.home .cards .card .read-more button,
+section .cards .card .read-more button {
+  padding: 6px 10px;
+  cursor: pointer;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 4px;
+  color: white;
 }
 .home .cards .card .bottom,
 section .cards .card .bottom {
