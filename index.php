@@ -79,6 +79,9 @@
                     echo "<div class='card'>";
                         echo "<h2>".$row['title']."</h2>";
                         echo "<p>".$row['content']."</p>";
+                        echo "<form class='read-more' action='singlepost.php' method='GET' autocomplete='off'>
+                            <button type='submit' name='post_id' value=".$row['post_id'].">READ MORE</button>
+                        </form>";
                         echo "<div class='bottom'>";
                             echo "<small>".$row['date_created']."</small>";
                             $authorId = $row['author_id'];
