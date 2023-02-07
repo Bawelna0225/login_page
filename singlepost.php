@@ -35,6 +35,9 @@
     <title>Document</title>
 </head>
 <body>
+    <?php 
+        $postId = $_GET['post_id'];
+    ?>
     <nav>
         <a class="logo" href="index.php">LOGO</a>
         <?php
@@ -71,9 +74,20 @@
     </nav>
     <section>
             <?php 
-                $sql3 = "SELECT * FROM userposts";
-                $fetch_posts = mysqli_query($connection, $sql3);
-            
+                $sql3 = "SELECT * FROM userposts WHERE post_id = '$postId'";
+                $fetch_data_query = mysqli_query($connection, $sql3);
+                $fetch_data =  mysqli_fetch_assoc($fetch_data_query);
+                echo "<h1>".$fetch_data['title']."</h1>";
+                echo "<div class='bottom'>";
+                    echo "<small>".$fetch_data['date_created']."</small>";
+                    $authorId = $fetch_data['author_id'];
+                    $select_author = "SELECT * FROM userdata WHERE id='$authorId'";
+                    $run_sql = mysqli_query($connection, $select_author);
+                    $fetch_info = mysqli_fetch_assoc($run_sql);
+                    echo "<div class='author'><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
+                    echo "<b>". $fetch_info['name']."</b></div>";
+                echo "</div>";
+                echo "<p>".$fetch_data['content']."</p>";
             ?>
     </section>
 </body>
