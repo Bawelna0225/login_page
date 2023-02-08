@@ -83,7 +83,11 @@
                     $select_author = "SELECT * FROM userdata WHERE id='$authorId'";
                     $run_sql = mysqli_query($connection, $select_author);
                     $fetch_info = mysqli_fetch_assoc($run_sql);
-                    echo "<div class='author'><p>Created by: </p><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
+                    if($fetch_info['picture'] == '') {
+                        echo "<div class='author'><p>Created by: </p>";
+                    } else {
+                        echo "<div class='author'><p>Created by: </p><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
+                    }
                     echo "<b>". $fetch_info['name']."</b></div>";
                 echo "</div>";
                 echo "<div class='post-content'>";
