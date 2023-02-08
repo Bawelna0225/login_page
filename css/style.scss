@@ -221,6 +221,7 @@ nav {
 		display: none;
 	}
 	.dropdown {
+		z-index: 10;
 		position: absolute;
 		padding: 5px;
 		background-color: var(--accent-color);
@@ -269,8 +270,10 @@ nav {
 }
 .home,
 section {
-	display: grid;
-	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
 	height: calc(100vh - 80px);
 	background-color: var(--primary-color);
 	h1 {
@@ -421,6 +424,7 @@ section {
 		h1 {
 			color: var(--accent-color);
 			padding: 0;
+			margin-bottom: 50px;
 		}
 		p {
 			font-size: 1.5rem;

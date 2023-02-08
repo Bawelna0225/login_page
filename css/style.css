@@ -217,6 +217,7 @@ nav .username {
   display: none;
 }
 nav .dropdown {
+  z-index: 10;
   position: absolute;
   padding: 5px;
   background-color: var(--accent-color);
@@ -265,8 +266,10 @@ nav .dropdown ul li a:hover {
 
 .home,
 section {
-  display: grid;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   height: calc(100vh - 80px);
   background-color: var(--primary-color);
 }
@@ -441,6 +444,7 @@ section .cards .card .author_pic {
 .post .post-content h1 {
   color: var(--accent-color);
   padding: 0;
+  margin-bottom: 50px;
 }
 .post .post-content p {
   font-size: 1.5rem;
