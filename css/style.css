@@ -17,7 +17,7 @@
 
 body {
   display: grid;
-  place-content: center;
+  place-content: start;
   height: 100vh;
   background-color: var(--primary-color);
   color: var(--text-color);
@@ -32,7 +32,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 400px;
+  width: 400px;
   gap: 15px;
   background-color: var(--primary-color);
   padding: 25px;
@@ -264,14 +264,24 @@ nav .dropdown ul li a:hover {
   background-color: var(--hover-accent-color);
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  min-height: calc(100vh - 80px);
+  min-height: calc(100cvh - 80px);
+  gap: 50px;
+}
+
 .home,
 section {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  height: calc(100vh - 80px);
   background-color: var(--primary-color);
+  margin: 0 auto;
 }
 .home h1,
 section h1 {
@@ -290,6 +300,7 @@ section h3 {
 }
 .home .cards,
 section .cards {
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 20px;
@@ -435,7 +446,7 @@ section .cards .card .author_pic {
   color: var(--accent-color);
 }
 .post .post-content {
-  max-width: 1000px;
+  width: min(100vw - 2rem, 1000px);
   box-shadow: 0px 0px 10px var(--shadow-color);
   border-radius: 4px;
   padding: 20px;
@@ -448,6 +459,41 @@ section .cards .card .author_pic {
 }
 .post .post-content p {
   font-size: 1.5rem;
+}
+
+.comments-section {
+  gap: 20px;
+}
+.comments-section .comment {
+  width: min(100vw - 2rem, 1000px);
+  box-shadow: 0px 0px 10px var(--shadow-color);
+  border-radius: 4px;
+  margin: 0 auto;
+  display: flex;
+}
+.comments-section .comment textarea {
+  width: 100%;
+}
+.comments-section .comment textarea:focus {
+  outline: 1px solid var(--accent-color);
+}
+.comments-section .comment .buttons {
+  width: 100%;
+}
+.comments-section .comment .buttons button {
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.comments-section .comment .buttons button:first-of-type {
+  border: 1px solid var(--accent-color);
+  background-color: transparent;
+  color: var(--accent-color);
+}
+.comments-section .comment .buttons button:nth-of-type(2) {
+  border: 1px solid var(--accent-color);
+  background-color: var(--accent-color);
+  color: white;
 }
 
 .wrapper {

@@ -69,36 +69,38 @@
             } 
         ?>
     </nav>
-    <section>
-           <div class="cards">
-            <?php 
-                $sql3 = "SELECT * FROM userposts";
-                $fetch_posts = mysqli_query($connection, $sql3);
-                while ($row = mysqli_fetch_assoc($fetch_posts))
-                {
-                    echo "<div class='card'>";
-                        echo "<h2>".$row['title']."</h2>";
-                        echo "<p>".$row['content']."</p>";
-                        echo "<form class='read-more' action='singlepost.php' method='GET' autocomplete='off'>
-                            <button type='submit' name='post_id' value=".$row['post_id'].">READ MORE</button>
-                        </form>";
-                        echo "<div class='bottom'>";
-                            echo "<small>".$row['date_created']."</small>";
-                            $authorId = $row['author_id'];
-                            $select_author = "SELECT * FROM userdata WHERE id='$authorId'";
-                            $run_sql = mysqli_query($connection, $select_author);
-                            $fetch_info = mysqli_fetch_assoc($run_sql);
-                            if($fetch_info['picture'] == '') {
-                                echo "<div class='author'>";
-                            } else {
-                                echo "<div class='author'><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
-                            }
-                            echo "<b>". $fetch_info['name']."</b></div>";
+    <main>
+        <section>
+            <div class="cards">
+                <?php 
+                    $sql3 = "SELECT * FROM userposts";
+                    $fetch_posts = mysqli_query($connection, $sql3);
+                    while ($row = mysqli_fetch_assoc($fetch_posts))
+                    {
+                        echo "<div class='card'>";
+                            echo "<h2>".$row['title']."</h2>";
+                            echo "<p>".$row['content']."</p>";
+                            echo "<form class='read-more' action='singlepost.php' method='GET' autocomplete='off'>
+                                <button type='submit' name='post_id' value=".$row['post_id'].">READ MORE</button>
+                            </form>";
+                            echo "<div class='bottom'>";
+                                echo "<small>".$row['date_created']."</small>";
+                                $authorId = $row['author_id'];
+                                $select_author = "SELECT * FROM userdata WHERE id='$authorId'";
+                                $run_sql = mysqli_query($connection, $select_author);
+                                $fetch_info = mysqli_fetch_assoc($run_sql);
+                                if($fetch_info['picture'] == '') {
+                                    echo "<div class='author'>";
+                                } else {
+                                    echo "<div class='author'><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
+                                }
+                                echo "<b>". $fetch_info['name']."</b></div>";
+                            echo "</div>";
                         echo "</div>";
-                    echo "</div>";
-                }
-            ?>
-        </div>
-    </section>
+                    }
+                ?>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

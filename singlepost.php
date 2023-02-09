@@ -72,29 +72,42 @@
             } 
         ?>
     </nav>
-    <section class='post'>
-            <?php 
-                $sql3 = "SELECT * FROM userposts WHERE post_id = '$postId'";
-                $fetch_data_query = mysqli_query($connection, $sql3);
-                $fetch_data =  mysqli_fetch_assoc($fetch_data_query);
-                echo "<div class='top'>";
-                    echo "<p> Created on: ".$fetch_data['date_created']."</p>";
-                    $authorId = $fetch_data['author_id'];
-                    $select_author = "SELECT * FROM userdata WHERE id='$authorId'";
-                    $run_sql = mysqli_query($connection, $select_author);
-                    $fetch_info = mysqli_fetch_assoc($run_sql);
-                    if($fetch_info['picture'] == '') {
-                        echo "<div class='author'><p>Created by: </p>";
-                    } else {
-                        echo "<div class='author'><p>Created by: </p><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
-                    }
-                    echo "<b>". $fetch_info['name']."</b></div>";
-                echo "</div>";
-                echo "<div class='post-content'>";
-                    echo "<h1 class='title'>".$fetch_data['title']."</h1>";
-                    echo "<p>".$fetch_data['content']."</p>";
-                echo "</div>";
-            ?>
-    </section>
+    <main>
+        <section class='post'>
+                <?php 
+                    $sql3 = "SELECT * FROM userposts WHERE post_id = '$postId'";
+                    $fetch_data_query = mysqli_query($connection, $sql3);
+                    $fetch_data =  mysqli_fetch_assoc($fetch_data_query);
+                    echo "<div class='top'>";
+                        echo "<p> Created on: ".$fetch_data['date_created']."</p>";
+                        $authorId = $fetch_data['author_id'];
+                        $select_author = "SELECT * FROM userdata WHERE id='$authorId'";
+                        $run_sql = mysqli_query($connection, $select_author);
+                        $fetch_info = mysqli_fetch_assoc($run_sql);
+                        if($fetch_info['picture'] == '') {
+                            echo "<div class='author'><p>Created by: </p>";
+                        } else {
+                            echo "<div class='author'><p>Created by: </p><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
+                        }
+                        echo "<b>". $fetch_info['name']."</b></div>";
+                    echo "</div>";
+                    echo "<div class='post-content'>";
+                        echo "<h1 class='title'>".$fetch_data['title']."</h1>";
+                        echo "<p>".$fetch_data['content']."</p>";
+                    echo "</div>";
+                ?>
+        </section>
+        <section class='comments-section'>
+            <h2>Leave Your Comment</h2>
+            <form class='comment' action="singlepost.php" method='get' autocomplete='off'>
+                <input type="hidden" name="post_id" value='<?php echo $postId ?>'>
+                <textarea name="comment" id="" cols="30" rows="10" placeholder='Your Comment'></textarea>
+                <div class="buttons">
+                    <button type="reset" value="reset">Cancel</button>
+                    <button type='submit'>Submit</button>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
