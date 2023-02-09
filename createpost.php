@@ -21,7 +21,7 @@ if($email != false && $password != false){
     <link rel="stylesheet" href="css/style.css">
     <title><?php echo $fetch_info['name'] ?> | Create Post</title>
 </head>
-<body>
+<body class='center'>
         <form action="createpost.php" method="POST" autocomplete="off">
         <h2>Create New Post</h2>
         <?php

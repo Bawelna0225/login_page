@@ -81,58 +81,60 @@ if($email != false && $password != false){
 </script>
 </head>
     <body>
-        <?php
-        if(count($errors) > 0){
-            ?>
-            <div class="alert alert-danger text-center">
-                <?php
-                foreach($errors as $showerror){
-                    echo $showerror;
-                }
-                ?>
-            </div>
+        <main class='center'>
             <?php
-        }
-        ?>
-        <div class="wrapper">
-            <br />
-            <img class="user-logo" src="upload/<?php echo $fetch_info['picture']?>">
-            <h2>Change Your profile picture</h2>
-            <br />
-            <form method="post">
-                <input type="file" name="crop_image" class="crop_image" id="upload_image" />
-            </form>
-            <div class="modal" id="modal_crop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3 class="modal-title">Crop Image Before Upload</h3>
-                        </div>
-                        <div class="modal-body">
-                            <div class="img-container">
-                                <div class="row">
-                                    <div>
-                                        <img src="" id="sample_image" />
-                                    </div>
-                                    <div>
-                                        <div class="preview"></div>
+            if(count($errors) > 0){
+                ?>
+                <div class="alert alert-danger text-center">
+                    <?php
+                    foreach($errors as $showerror){
+                        echo $showerror;
+                    }
+                    ?>
+                </div>
+                <?php
+            }
+            ?>
+            <div class="wrapper">
+                <br />
+                <img class="user-logo" src="upload/<?php echo $fetch_info['picture']?>">
+                <h2>Change Your profile picture</h2>
+                <br />
+                <form method="post">
+                    <input type="file" name="crop_image" class="crop_image" id="upload_image" />
+                </form>
+                <div class="modal" id="modal_crop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Crop Image Before Upload</h3>
+                            </div>
+                            <div class="modal-body">
+                                <div class="img-container">
+                                    <div class="row">
+                                        <div>
+                                            <img src="" id="sample_image" />
+                                        </div>
+                                        <div>
+                                            <div class="preview"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class='primary' id="crop_and_upload">Crop</button>
-                            <button type="button" class='secondary' data-dismiss="modal">Cancel</button>
+                            <div class="modal-footer">
+                                <button type="button" class='primary' id="crop_and_upload">Crop</button>
+                                <button type="button" class='secondary' data-dismiss="modal">Cancel</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>    
-                    <?php 
-            if($fetch_info['picture'] != '') {
-                echo "<form method='post'><button name='delete-picture'>Delete Picture</button></form>";
-            }
-        ?>
-        </div>
-        <a style='text-align: center;' href="home.php">Go to Home</a>        
+                </div>    
+                        <?php 
+                if($fetch_info['picture'] != '') {
+                    echo "<form method='post'><button name='delete-picture'>Delete Picture</button></form>";
+                }
+            ?>
+            </div>
+            <a style='text-align: center;' href="home.php">Go to Home</a>        
+        </main>
     </body>
 </html>

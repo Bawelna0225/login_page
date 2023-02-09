@@ -101,7 +101,7 @@
             <h2>Leave Your Comment</h2>
             <form class='comment' action="singlepost.php" method='get' autocomplete='off'>
                 <input type="hidden" name="post_id" value='<?php echo $postId ?>'>
-                <textarea name="comment" id="" cols="30" rows="10" placeholder='Your Comment'></textarea>
+                <textarea name="comment" id="" cols="30" rows="10" placeholder='Your Comment' required></textarea>
                 <div class="buttons">
                     <button type="reset" value="reset">Cancel</button>
                     <button type='submit'>Submit</button>

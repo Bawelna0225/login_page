@@ -28,7 +28,7 @@ if($email != false && $password != false){
     <link rel="stylesheet" href="css/style.css">
     <title><?php echo $fetch_info['name'] ?> | Edit Post</title>
 </head>
-<body>
+<body class='center'>
     <form action="editpost.php" method="POST" autocomplete="off">
         <h2>Edit Post</h2>
         <?php

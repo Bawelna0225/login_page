@@ -22,7 +22,7 @@ if($email != false && $password != false){
     <link rel="stylesheet" href="css/style.css">
     <title><?php echo $fetch_info['name'] ?> | Delete Post</title>
 </head>
-<body>
+<body class='center'>
         <form class='delete-post' action="deletepost.php" method="POST" autocomplete="off">
         <h2>Are You Sure?</h2>
         <p>This action cannot be reverted</p>
