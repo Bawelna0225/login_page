@@ -479,11 +479,17 @@ section .cards .card .author_pic {
 }
 .comments-section .comment .buttons {
   width: 100%;
+  display: flex;
+  gap: 10px;
 }
 .comments-section .comment .buttons button {
   padding: 6px 10px;
   border-radius: 4px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 .comments-section .comment .buttons button:first-of-type {
   border: 1px solid var(--accent-color);

@@ -103,8 +103,8 @@
                 <input type="hidden" name="post_id" value='<?php echo $postId ?>'>
                 <textarea name="comment" id="" cols="30" rows="10" placeholder='Your Comment' required></textarea>
                 <div class="buttons">
-                    <button type="reset" value="reset">Cancel</button>
-                    <button type='submit'>Submit</button>
+                    <button type="reset" value="reset">Cancel<span class="material-symbols-outlined">cancel_schedule_send</span></button>
+                    <button type='submit'>Submit<span class="material-symbols-outlined">send</span></button>
                 </div>
             </form>
         </section>
