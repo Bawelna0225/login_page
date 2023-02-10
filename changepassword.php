@@ -12,7 +12,7 @@ if($email == false){
     <title>Change Password</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class='center'>
     <form action="changepassword.php" method="POST" autocomplete="off">
         <h2>Change Password</h2>
         <?php 
