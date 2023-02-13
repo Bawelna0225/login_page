@@ -1,15 +1,20 @@
 const authorName = document.querySelectorAll('.authorname')
-const users = []
+const users = [],
+	trimmed = []
 
 authorName.forEach((author) => {
 	users.push(author.textContent)
 })
 users.forEach((user) => {
-	var matches = user.match(/\b(\w)/g)
-	var acronym = matches.join('')
-    trimmed = user.replace(/\s/g, '')
-	if (document.querySelector(`.${trimmed}`) != null) {
-		document.querySelector(`.${trimmed}`).textContent = acronym.toUpperCase()
-	}
+	trimmed.push(user.replace(/\s/g, ''))
 })
 
+trimmed.forEach((trim) => {
+	if (document.querySelector(`.${trim}`) != null) {
+		var matches = trim.match(/\b(\w)/g)
+		var acronym = matches.join('')
+		document.querySelectorAll(`.${trim}`).forEach((logo) => {
+			logo.textContent = acronym.toUpperCase()
+		})
+	}
+})

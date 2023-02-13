@@ -458,8 +458,13 @@ section .cards .card .author_pic {
   padding: 0;
   margin-bottom: 50px;
 }
-.post .post-content p {
-  font-size: 1.5rem;
+.post .post-content pre {
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  font-size: 1.1rem;
 }
 
 .comments-section {

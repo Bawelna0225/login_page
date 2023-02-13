@@ -96,7 +96,7 @@
                     echo "</div>";
                     echo "<div class='post-content'>";
                         echo "<h1 class='title'>".$fetch_data['title']."</h1>";
-                        echo "<p>".$fetch_data['content']."</p>";
+                        echo "<pre>".$fetch_data['content']."</pre>";
                     echo "</div>";
                 ?>
         </section>
@@ -111,10 +111,11 @@
                 </div>
             </form>
             <div class="comments">
-                <h2>Comments</h2>
+                
             <?php 
                 $select_comments_query = "SELECT * FROM postcomments WHERE post_id = $postId ORDER BY date_created desc";
                 $fetch_comments = mysqli_query($connection, $select_comments_query);
+                echo "<h2>Comments (".mysqli_num_rows($fetch_comments)."): </h2>";
                 while ($row = mysqli_fetch_assoc($fetch_comments))
                 {
                     echo "<div class='user-comment'>";
