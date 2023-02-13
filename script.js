@@ -1,5 +1,5 @@
 const username = document.querySelector('.username').textContent
-const userLogo = document.getElementById('user-logo')
+const userLogo = document.querySelector('#user-logo')
 const openMenu = document.querySelector('.user-logo')
 const dropdown = document.querySelector('.dropdown')
 var matches = username.match(/\b(\w)/g);

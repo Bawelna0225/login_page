@@ -469,10 +469,10 @@ section {
 				align-items: center;
 				gap: 5px;
 				&:disabled {
-						filter: grayscale(100);
-						opacity: 0.6;
-						cursor: auto;
-					}
+					filter: grayscale(100);
+					opacity: 0.6;
+					cursor: auto;
+				}
 				&:first-of-type {
 					border: 1px solid var(--accent-color);
 					background-color: transparent;
@@ -482,7 +482,6 @@ section {
 					border: 1px solid var(--accent-color);
 					background-color: var(--accent-color);
 					color: white;
-					
 				}
 			}
 		}
@@ -645,4 +644,19 @@ section {
 	section {
 		place-content: start;
 	}
+}
+.authorname {
+	display: none;
+}
+.authorlogo {
+	width: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	aspect-ratio: 1/1;
+	font-size: 0.9rem;
+	border-radius: 8px;
+	border: 1px solid var(--accent-color);
+	color: var(--accent-color);
+	background-color: rgba(0, 0, 0, 0.01);
 }

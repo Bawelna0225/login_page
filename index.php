@@ -25,6 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="./createlogo.js" defer></script>
     <?php 
         if ($isUserLoggedIn) {
         ?>
@@ -91,6 +92,9 @@
                                 $fetch_info = mysqli_fetch_assoc($run_sql);
                                 if($fetch_info['picture'] == '') {
                                     echo "<div class='author'>";
+                                        echo "<p class='authorname'>".$fetch_info['name']."</p>";
+                                        $string = str_replace(' ', '', $fetch_info['name']);
+                                        echo "<span class='".$string." authorlogo'></span>";
                                 } else {
                                     echo "<div class='author'><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
                                 }
