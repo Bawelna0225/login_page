@@ -128,6 +128,7 @@
                             echo "<h4>".$fetch_info['name']."</h4>";
                         echo "</div>";
                         echo "<p>".$row['content']."</p>";
+                        echo "<button>reply<span class='material-symbols-outlined'>reply</span></button>";
                         echo "<div class='replies'>";
                         echo"</div>";
                     echo "</div>";

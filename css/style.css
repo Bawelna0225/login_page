@@ -529,6 +529,32 @@ section .cards .card .author_pic {
 .comments-section .comments .user-comment p {
   padding-left: 45px;
 }
+.comments-section .comments .user-comment button {
+  margin-left: 55px;
+  background-color: transparent;
+  border: none;
+  color: var(--accent-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.comments-section .comments .user-comment button span {
+  font-size: 1rem;
+}
+.comments-section .comments .user-comment button:hover {
+  cursor: pointer;
+  color: var(--hover-accent-color);
+}
+.comments-section .comments .replies:has(.user-comment) {
+  margin-top: 10px;
+  padding: 5px;
+  display: grid;
+  gap: 8px;
+}
+.comments-section .comments .replies:has(.user-comment) .user-comment {
+  box-shadow: 0px 0px 5px var(--shadow-color) !important;
+}
 
 .center {
   display: flex;

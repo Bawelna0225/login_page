@@ -506,6 +506,32 @@ section {
 			p {
 				padding-left: 45px;
 			}
+			button {
+				margin-left: 55px;
+				background-color: transparent;
+				border: none;
+				color: var(--accent-color);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 5px;
+				span {
+					font-size: 1rem;
+				}
+				&:hover {
+					cursor: pointer;
+					color: var(--hover-accent-color);
+				}
+			}
+		}
+		.replies:has(.user-comment) {
+			margin-top: 10px;
+			padding: 5px;
+			display: grid;
+			gap: 8px;
+			.user-comment {
+				box-shadow: 0px 0px 5px var(--shadow-color) !important;
+			}
 		}
 	}
 }
