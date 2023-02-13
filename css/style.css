@@ -492,6 +492,11 @@ section .cards .card .author_pic {
   align-items: center;
   gap: 5px;
 }
+.comments-section .comment .buttons button:disabled {
+  filter: grayscale(100);
+  opacity: 0.6;
+  cursor: auto;
+}
 .comments-section .comment .buttons button:first-of-type {
   border: 1px solid var(--accent-color);
   background-color: transparent;

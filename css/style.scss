@@ -468,6 +468,11 @@ section {
 				justify-content: center;
 				align-items: center;
 				gap: 5px;
+				&:disabled {
+						filter: grayscale(100);
+						opacity: 0.6;
+						cursor: auto;
+					}
 				&:first-of-type {
 					border: 1px solid var(--accent-color);
 					background-color: transparent;
@@ -477,6 +482,7 @@ section {
 					border: 1px solid var(--accent-color);
 					background-color: var(--accent-color);
 					color: white;
+					
 				}
 			}
 		}

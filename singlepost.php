@@ -1,5 +1,6 @@
 <?php require_once "userDataController.php"; ?>
 <?php  
+    $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
     if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
         $isUserLoggedIn = true;
         $email = $_SESSION['email'];

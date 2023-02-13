@@ -31,7 +31,11 @@ if(isset($_POST['signup'])){
                 $_SESSION['info'] = $info;
                 $_SESSION['email'] = $email;
                 $_SESSION['password'] = $password;
-                header('location: home.php');
+                if(isset($_SESSION['current_page'])) {
+                    header("Location: ". $_SESSION['current_page']);
+                } else {
+                    header("Location: home.php");
+                }
                 exit();
             }
         else{
@@ -51,7 +55,11 @@ if(isset($_POST['signup'])){
             if(password_verify($password, $fetch_pass)){
                 $_SESSION['email'] = $email;
                 $_SESSION['password'] = $password;
-                header('location: home.php');
+                if(isset($_SESSION['current_page'])) {
+                    header("Location: ". $_SESSION['current_page']);
+                } else {
+                    header("Location: home.php");
+                }
             }else{
                 $errors['email'] = "Incorrect email or password!";
             }
@@ -97,7 +105,11 @@ if(isset($_POST['signup'])){
         $insert_post = "INSERT INTO userposts (post_id, author_id, title, content, date_created) VALUES (NULL, $authorId, '$postTitle', '$postContent', '$current_date')";
         $run_query = mysqli_query($connection, $insert_post);
         if($run_query){
-            header('Location: home.php');
+            if(isset($_SESSION['current_page'])) {
+                header("Location: ". $_SESSION['current_page']);
+            } else {
+                header("Location: home.php");
+            }
         }else{
             $errors['db-error'] = "Failed to create post!";
         } 
@@ -115,7 +127,11 @@ if(isset($_POST['signup'])){
         $update_post = "UPDATE userposts SET title = '$postTitle', content = '$postContent', date_created = '$current_date' WHERE post_id = $postId";
         $run_query = mysqli_query($connection, $update_post);
         if($run_query){
-            header('Location: home.php');
+            if(isset($_SESSION['current_page'])) {
+                header("Location: ". $_SESSION['current_page']);
+            } else {
+                header("Location: home.php");
+            }
         }else{
             $errors['db-error'] = "Failed to edit post!";
         } 
@@ -130,7 +146,11 @@ if(isset($_POST['signup'])){
         $delete = "DELETE FROM userposts WHERE post_id = $postId";
         $run_query = mysqli_query($connection, $delete);
         if($run_query){
-            header('Location: home.php');
+            if(isset($_SESSION['current_page'])) {
+                header("Location: ". $_SESSION['current_page']);
+            } else {
+                header("Location: home.php");
+            }
         }else{
             $errors['db-error'] = "Failed to delete post!";
         }
@@ -159,7 +179,11 @@ if(isset($_POST['signup'])){
         $update_pic = "UPDATE userdata SET picture = '$imagename' WHERE email = '$email'";
         $run_query = mysqli_query($connection, $update_pic);
         if($run_query){
-            header('Location: home.php');
+            if(isset($_SESSION['current_page'])) {
+                header("Location: ". $_SESSION['current_page']);
+            } else {
+                header("Location: home.php");
+            }
         }else{
             $errors['db-error'] = "Failed to change your picture!";
         }
@@ -181,7 +205,11 @@ if(isset($_POST['delete-picture'])){
     $delete_pic = "UPDATE userdata SET picture = '' WHERE email = '$email'";
     $run_query = mysqli_query($connection, $delete_pic);
     if($run_query){
-        header('Location: home.php');
+        if(isset($_SESSION['current_page'])) {
+            header("Location: ". $_SESSION['current_page']);
+        } else {
+            header("Location: home.php");
+        }
     }else{
         $errors['db-error'] = "Failed to delete your picture!";
     }
@@ -212,7 +240,8 @@ if(isset($_POST['delete-picture'])){
                     } 
             }
         }else{
-            header("Location:login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
+            $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
+            header('Location: login.php');
         }
     }
 ?>
