@@ -107,32 +107,32 @@
                     <button type='submit' name='send'>Submit<span class="material-symbols-outlined">send</span></button>
                 </div>
             </form>
-            <div class="container">
-                <div class="comments">
-                <?php 
-                    $select_comments_query = "SELECT * FROM postcomments WHERE post_id = $postId ORDER BY date_created desc";
-                    $fetch_comments = mysqli_query($connection, $select_comments_query);
-                    while ($row = mysqli_fetch_assoc($fetch_comments))
-                    {
-                        echo "<div class='user-comment'>";
-                            echo "<small>".$row['date_created']."</small>";
-                            $userId = $row['user_id'];
-                            $select_author = "SELECT * FROM userdata WHERE id='$userId'";
-                            $run_sql = mysqli_query($connection, $select_author);
-                            $fetch_info = mysqli_fetch_assoc($run_sql);
-                            if($fetch_info['picture'] == '') {
-                                echo "<div class='author'>";
-                            } else {
-                                echo "<div class='author'><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
-                            }
+            <div class="comments">
+                <h2>Comments</h2>
+            <?php 
+                $select_comments_query = "SELECT * FROM postcomments WHERE post_id = $postId ORDER BY date_created desc";
+                $fetch_comments = mysqli_query($connection, $select_comments_query);
+                while ($row = mysqli_fetch_assoc($fetch_comments))
+                {
+                    echo "<div class='user-comment'>";
+                        echo "<small>".$row['date_created']."</small>";
+                        $userId = $row['user_id'];
+                        $select_author = "SELECT * FROM userdata WHERE id='$userId'";
+                        $run_sql = mysqli_query($connection, $select_author);
+                        $fetch_info = mysqli_fetch_assoc($run_sql);
+                        if($fetch_info['picture'] == '') {
+                            echo "<div class='commenter'>";
+                        } else {
+                            echo "<div class='commenter'><img class='commenter_pic' src='upload/". $fetch_info['picture']."'>";
+                        }
                             echo "<h4>".$fetch_info['name']."</h4>";
-                            echo "<p>".$row['content']."</p>";
-                            echo "<div class='replies'>";
-                            echo"</div>";
                         echo "</div>";
-                    }
-                ?>
-                </div>
+                        echo "<p>".$row['content']."</p>";
+                        echo "<div class='replies'>";
+                        echo"</div>";
+                    echo "</div>";
+                }
+            ?>
             </div>
         </section>
     </main>
