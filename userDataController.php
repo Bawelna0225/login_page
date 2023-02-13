@@ -187,3 +187,32 @@ if(isset($_POST['delete-picture'])){
     }
 }
 ?>
+<?php
+//add comment
+    if(isset($_GET['send'])) {
+        $postId = mysqli_real_escape_string($connection, $_GET['post_id']);
+        $comment_content = mysqli_real_escape_string($connection, $_GET['comment']);
+        $email = $_SESSION['email'];
+        $password = $_SESSION['password'];
+        if($email != false && $password != false){
+            $sql = "SELECT * FROM userdata WHERE email = '$email'";
+            $run_Sql = mysqli_query($connection, $sql);
+            if($run_Sql){
+                $fetch_info = mysqli_fetch_assoc($run_Sql);
+                    $date = date("Y-m-d H:i:s");
+                    $userId = $fetch_info['id'];
+                    $sql = "INSERT INTO `postcomments`(`comment_id`, `post_id`, `user_id`, `parent_comment_id`, `content`, `date_created`, `is_edited`) VALUES (NULL, $postId, $userId, NULL, '$comment_content', '$date' , 0)";
+
+                    $run_query = mysqli_query($connection, $sql);
+                    if($run_query){
+                        echo "success";
+                        header("Location: singlepost.php?post_id=$postId");
+                    }else{
+                        echo "Failed to add comment!";
+                    } 
+            }
+        }else{
+            header("Location:login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
+        }
+    }
+?>
