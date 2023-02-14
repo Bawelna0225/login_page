@@ -146,13 +146,30 @@
                         </form>";
                         
                         echo "<div class='replies'>";
-                            $select_replies_query = "SELECT * FROM comments WHERE post_id = $postId AND parent_comment_id='".$row['comment_id']."' ORDER BY date_created desc";
+                            $parent_comment_id = $row['comment_id'];
+                            $select_replies_query = "SELECT * FROM postcomments WHERE post_id = $postId AND parent_comment_id = $parent_comment_id ORDER BY date_created desc";
                             $fetch_replies = mysqli_query($connection, $select_replies_query);
-                            // while ($reply = mysqli_fetch_assoc($fetch_replies))
-                            // {
-                            //     echo "<p>".$reply['parent_comment_id']."</p>";
-                            //     echo "<p>".$reply['content']."</p>";
-                            // }
+                            while ($reply = mysqli_fetch_assoc($fetch_replies))
+                            {
+                                echo "<div class='user-comment'>";
+                                    echo "<small>".$reply['date_created']."</small>";
+                                    $userId = $reply['user_id'];
+                                    $select_author = "SELECT * FROM userdata WHERE id='$userId'";
+                                    $run_sql = mysqli_query($connection, $select_author);
+                                    $fetch_info = mysqli_fetch_assoc($run_sql);
+                                    if($fetch_info['picture'] == '') {
+                                        echo "<div class='commenter'>";
+                                            echo "<p class='authorname'>".$fetch_info['name']."</p>";
+                                            $string = str_replace(' ', '', $fetch_info['name']);
+                                            echo "<span class='".$string." authorlogo'></span>";
+                                    } else {
+                                        echo "<div class='commenter'><img class='commenter_pic' src='upload/". $fetch_info['picture']."'>";
+                                    }
+                                        echo "<h4>".$fetch_info['name']."</h4>";
+                                    echo "</div>";
+                                    echo "<p>".$reply['content']."</p>";
+                                echo "</div>";
+                            }
                         echo"</div>";
                     echo "</div>";
                 }

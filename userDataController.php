@@ -233,7 +233,6 @@ if(isset($_POST['delete-picture'])){
 
                     $run_query = mysqli_query($connection, $sql);
                     if($run_query){
-                        echo "success";
                         header("Location: singlepost.php?post_id=$postId");
                     }else{
                         echo "Failed to add comment!";
@@ -247,18 +246,30 @@ if(isset($_POST['delete-picture'])){
 ?>
 <?php
     if(isset($_GET['reply'])) {
-        $comment_content = $_GET['comment'];
-        $parent_comment_id = $_GET['reply'];
-        $date = date("Y-m-d H:i:s");
-
-        $sql = "INSERT INTO `comments`(`comment_id`, `post_id`, `user_id`, `parent_comment_id`, `content`, `date_created`, `is_edited`) VALUES (NULL, 1, 1, $parent_comment_id, '$comment_content', '$date' , 0)";
-
-        $run_query = mysqli_query($connection, $sql);
-        if($run_query){
-            echo "success";
-            header('Location: index.php');
+        $postId = mysqli_real_escape_string($connection, $_GET['post_id']);
+        $comment_content = mysqli_real_escape_string($connection, $_GET['comment']);
+        $parent_comment_id = mysqli_real_escape_string($connection, $_GET['reply']);
+        $email = $_SESSION['email'];
+        $password = $_SESSION['password'];
+        if($email != false && $password != false){
+            $sql = "SELECT * FROM userdata WHERE email = '$email'";
+            $run_Sql = mysqli_query($connection, $sql);
+            if($run_Sql){
+                $fetch_info = mysqli_fetch_assoc($run_Sql);
+                    $date = date("Y-m-d H:i:s");
+                    $userId = $fetch_info['id'];
+                    $sql = "INSERT INTO `postcomments`(`comment_id`, `post_id`, `user_id`, `parent_comment_id`, `content`, `date_created`, `is_edited`) VALUES (NULL, $postId, $userId, $parent_comment_id, '$comment_content', '$date' , 0)";
+                    
+                    $run_query = mysqli_query($connection, $sql);
+                    if($run_query){
+                        header("Location: singlepost.php?post_id=$postId");
+                    }else{
+                        echo "Failed to add comment!";
+                    } 
+            }
         }else{
-            echo "Failed to add comment!";
-        } 
+            $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
+            header('Location: login.php');
+        }
     }
-    ?>
+?>

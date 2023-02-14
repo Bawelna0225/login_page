@@ -1,6 +1,5 @@
 <?php require_once "userDataController.php"; ?>
 <?php 
-$_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
 if($email != false && $password != false){
