@@ -115,7 +115,11 @@
             <?php 
                 $select_comments_query = "SELECT * FROM postcomments WHERE post_id = $postId AND parent_comment_id IS NULL ORDER BY date_created desc";
                 $fetch_comments = mysqli_query($connection, $select_comments_query);
-                echo "<h2>Comments (".mysqli_num_rows($fetch_comments)."): </h2>";
+
+                $select_comments_quantity_query = "SELECT * FROM postcomments WHERE post_id = $postId ORDER BY date_created desc";
+                $comments_quantity = mysqli_query($connection, $select_comments_quantity_query);
+                echo "<h2>Comments (".mysqli_num_rows($comments_quantity)."): </h2>";
+
                 while ($row = mysqli_fetch_assoc($fetch_comments))
                 {
                     echo "<div class='user-comment'>";
