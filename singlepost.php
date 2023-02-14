@@ -147,7 +147,7 @@
                         
                         echo "<div class='replies'>";
                             $parent_comment_id = $row['comment_id'];
-                            $select_replies_query = "SELECT * FROM postcomments WHERE post_id = $postId AND parent_comment_id = $parent_comment_id ORDER BY date_created desc";
+                            $select_replies_query = "SELECT * FROM postcomments WHERE post_id = $postId AND parent_comment_id = $parent_comment_id ORDER BY date_created";
                             $fetch_replies = mysqli_query($connection, $select_replies_query);
                             while ($reply = mysqli_fetch_assoc($fetch_replies))
                             {
