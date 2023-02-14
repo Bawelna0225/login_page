@@ -477,6 +477,28 @@ section .cards .card .author_pic {
   margin: 0 auto;
   display: flex;
 }
+.comments-section .comment.hidden {
+  opacity: 0;
+  height: 0;
+  display: none;
+}
+.comments-section .comment.reply-form {
+  width: 100%;
+  margin-top: 10px;
+  box-shadow: 0px 0px 5px var(--shadow-color);
+}
+.comments-section .comment.reply-form textarea {
+  height: 50%;
+}
+.comments-section .comment.reply-form .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+.comments-section .comment.reply-form .buttons button {
+  margin: 0 !important;
+}
 .comments-section .comment textarea {
   width: 100%;
 }

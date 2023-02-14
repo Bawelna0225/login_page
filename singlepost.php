@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="./createlogo.js" defer></script>
-
+    <script src="./toggleReply.js" defer></script>
     <?php 
         if ($isUserLoggedIn) {
         ?>
@@ -113,7 +113,7 @@
             <div class="comments">
                 
             <?php 
-                $select_comments_query = "SELECT * FROM postcomments WHERE post_id = $postId ORDER BY date_created desc";
+                $select_comments_query = "SELECT * FROM postcomments WHERE post_id = $postId AND parent_comment_id IS NULL ORDER BY date_created desc";
                 $fetch_comments = mysqli_query($connection, $select_comments_query);
                 echo "<h2>Comments (".mysqli_num_rows($fetch_comments)."): </h2>";
                 while ($row = mysqli_fetch_assoc($fetch_comments))
@@ -135,12 +135,29 @@
                             echo "<h4>".$fetch_info['name']."</h4>";
                         echo "</div>";
                         echo "<p>".$row['content']."</p>";
-                        echo "<button>reply<span class='material-symbols-outlined'>reply</span></button>";
+                        echo "<button class='reply' data-comment-id='".$row['comment_id']."'>reply<span class='material-symbols-outlined'>reply</span></button>";
+                        echo "<form id='form-id-".$row['comment_id']."' class='comment reply-form hidden' action='singlepost.php' method='get' autocomplete='off'>
+                            <input type='hidden' name='post_id' value='$postId'>
+                            <textarea name='comment' id='' placeholder='Your Comment' required></textarea>
+                            <div class='buttons'>
+                                <button type='reset' value='reset' class='cancel-reply' data-cancel-id='".$row['comment_id']."'>Cancel<span class='material-symbols-outlined'>cancel_schedule_send</span></button>
+                                <button type='submit' name='reply' value='".$row['comment_id']."'>Submit<span class='material-symbols-outlined'>send</span></button>
+                            </div>
+                        </form>";
+                        
                         echo "<div class='replies'>";
+                            $select_replies_query = "SELECT * FROM comments WHERE post_id = $postId AND parent_comment_id='".$row['comment_id']."' ORDER BY date_created desc";
+                            $fetch_replies = mysqli_query($connection, $select_replies_query);
+                            // while ($reply = mysqli_fetch_assoc($fetch_replies))
+                            // {
+                            //     echo "<p>".$reply['parent_comment_id']."</p>";
+                            //     echo "<p>".$reply['content']."</p>";
+                            // }
                         echo"</div>";
                     echo "</div>";
                 }
             ?>
+
             </div>
         </section>
     </main>
