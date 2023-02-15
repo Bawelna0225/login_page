@@ -19,6 +19,7 @@ body {
   display: grid;
   place-content: start;
   height: 100vh;
+  width: 100vw;
   background-color: var(--primary-color);
   color: var(--text-color);
   overflow-x: hidden !important;
@@ -158,6 +159,7 @@ nav {
   background-color: var(--accent-color);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.411);
   width: 100vw;
+  right: 0;
   top: 0;
   height: 80px;
   color: white;
@@ -303,7 +305,7 @@ section h3 {
 section .cards {
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100vw - 4rem, 450px), 1fr));
   gap: 20px;
   padding: 20px;
 }
@@ -366,6 +368,7 @@ section .cards .card .forms form button:hover span {
 section .cards .card h2 {
   color: var(--accent-color);
   font-weight: normal;
+  font-size: clamp(1.2rem, 1.3vw, 1.4rem);
 }
 .home .cards .card p,
 section .cards .card p {
@@ -457,10 +460,11 @@ section .cards .card .author_pic {
   padding: 20px;
   margin: 0 auto;
 }
-.post .post-content h1 {
+.post .post-content .title {
+  font-size: clamp(1.3rem, 3vw, 3rem);
   color: var(--accent-color);
   padding: 0;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .post .post-content pre {
   white-space: pre-wrap; /* Since CSS 2.1 */
@@ -468,7 +472,7 @@ section .cards .card .author_pic {
   white-space: -pre-wrap; /* Opera 4-6 */
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.1vw, 1.2rem);
 }
 
 .comments-section {
