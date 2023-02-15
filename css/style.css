@@ -602,6 +602,7 @@ section .cards .card .author_pic {
   align-items: center;
   margin-block: 20px;
   margin: 0 auto;
+  width: min(100vw - 2rem, 480px);
 }
 .wrapper img {
   display: block;

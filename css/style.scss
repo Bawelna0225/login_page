@@ -580,6 +580,7 @@ section {
 	align-items: center;
 	margin-block: 20px;
 	margin: 0 auto;
+	width: min(calc(100vw - 2rem), 480px);
 	img {
 		display: block;
 		max-width: 100%;
