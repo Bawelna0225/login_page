@@ -374,7 +374,9 @@ section .cards .card h2 {
 section .cards .card p {
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .home .cards .card .read-more,
 section .cards .card .read-more {
