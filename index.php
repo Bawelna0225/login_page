@@ -74,7 +74,7 @@
         <section>
             <div class="cards">
                 <?php 
-                    $sql3 = "SELECT * FROM userposts";
+                    $sql3 = "SELECT * FROM userposts ORDER BY date_created desc";
                     $fetch_posts = mysqli_query($connection, $sql3);
                     while ($row = mysqli_fetch_assoc($fetch_posts))
                     {

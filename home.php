@@ -59,7 +59,7 @@ if($email != false && $password != false){
                 $fetch_info = mysqli_fetch_assoc($run_sql2);
                 $id = $fetch_info['id'];
 
-                $sql3 = "SELECT * FROM userposts WHERE author_id='$id'";
+                $sql3 = "SELECT * FROM userposts WHERE author_id='$id' ORDER BY date_created desc";
                 $fetch_posts = mysqli_query($connection, $sql3);
                 while ($row = mysqli_fetch_assoc($fetch_posts))
                 {
