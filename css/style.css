@@ -608,6 +608,9 @@ section .cards .card .author_pic {
   display: block;
   max-width: 100%;
 }
+.wrapper h2 {
+  text-align: center;
+}
 .wrapper form {
   width: 100%;
 }
