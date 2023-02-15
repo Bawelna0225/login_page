@@ -367,12 +367,13 @@ section {
 				width: max-content;
 				button {
 					padding: 6px 10px;
-					cursor: pointer;
 					background-color: var(--accent-color);
 					border: none;
 					border-radius: 4px;
 					color: white;
 					&:hover {
+						cursor: pointer;
+						background-color: var(--hover-accent-color);
 					}
 				}
 			}
