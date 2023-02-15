@@ -289,7 +289,7 @@ section {
 	background-color: var(--primary-color);
 	margin: 0 auto;
 	h1 {
-		font-size: 3rem;
+		font-size: clamp(1.5rem, 3vw, 4rem);
 		padding: 20px;
 		font-weight: normal;
 		color: var(--text-color);
