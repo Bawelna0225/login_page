@@ -35,12 +35,12 @@
         <?php
         }
     ?>
-    <title>Document</title>
-</head>
-<body>
     <?php 
         $postId = $_GET['post_id'];
     ?>
+    <title><?php echo "Post | $postId"?></title>
+</head>
+<body>
     <nav>
         <a class="logo" href="index.php">LOGO</a>
         <?php

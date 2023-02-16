@@ -30,8 +30,9 @@
             <script src="./script.js" defer></script>
         <?php
         }
+        $username = "Placeholder Username";
     ?>
-    <title>Document</title>
+    <title><?php echo "User | $username"?></title>
 </head>
 <body>
     <nav>
@@ -68,5 +69,10 @@
             } 
         ?>
     </nav>
+    <main>
+        <section>
+            User info here
+        </section>
+    </main>
 </body>
 </html>

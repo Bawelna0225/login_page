@@ -33,7 +33,7 @@
         <?php
         }
     ?>
-    <title>Document</title>
+    <title>Blog Website</title>
 </head>
 <body>
     <nav>
