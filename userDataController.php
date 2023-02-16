@@ -141,7 +141,8 @@ if(isset($_POST['signup'])){
     if(isset($_POST['confirm-delete'])){
         $_SESSION['info'] = "";
         
-        $postId = mysqli_real_escape_string($connection, $_POST['confirm-post-id']);
+        $postId = mysqli_real_escape_string($connection, $_POST['confirm-delete']);
+        echo $postId;
         
         $delete = "DELETE FROM userposts WHERE post_id = $postId";
         $run_query = mysqli_query($connection, $delete);

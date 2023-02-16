@@ -64,7 +64,7 @@ if($email != false && $password != false){
                 while ($row = mysqli_fetch_assoc($fetch_posts))
                 {
                     echo "<div class='card'>";
-                        echo "<div class='forms'><form action='deletepost.php' method='POST' autocomplete='off'><input type='hidden' name='postId' value='".$row['post_id']."'><button><span class='material-symbols-outlined'>delete</span></button></form><form action='editpost.php' method='POST' autocomplete='off'><input type='hidden' name='postId' value='".$row['post_id']."'><button><span class='material-symbols-outlined'>edit</span></button></form></div>";
+                        echo "<div class='forms'><form action='deletepost.php' method='POST' autocomplete='off'><button name='postId' type='submit' value='".$row['post_id']."'><span class='material-symbols-outlined'>delete</span></button></form><form action='editpost.php' method='POST' autocomplete='off'><input type='hidden' name='postId' value='".$row['post_id']."'><button><span class='material-symbols-outlined'>edit</span></button></form></div>";
                         echo "<h2>".$row['title']."</h2>";
                         echo "<p>".$row['content']."</p>";
                         echo "<div class='bottom'>";

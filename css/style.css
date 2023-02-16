@@ -709,7 +709,7 @@ section {
   }
 }
 .authorname {
-  display: none;
+  display: none !important;
 }
 
 .authorlogo {

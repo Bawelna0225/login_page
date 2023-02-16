@@ -2,7 +2,11 @@
 <?php 
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
-$postId = $_POST['postId'];
+
+if(isset($_POST['postId'])) {
+    $postId = $_POST['postId'];
+}
+
 if($email != false && $password != false){
     $sql = "SELECT * FROM userdata WHERE email = '$email'";
     $run_Sql = mysqli_query($connection, $sql);
@@ -39,9 +43,8 @@ if($email != false && $password != false){
             <?php
         }
         ?>
-        <input type="text" name='confirm-post-id' value='<?php echo $postId ?>'>
         <div class="buttons">
-            <button type='submit' name='confirm-delete'>Confirm</button>
+            <button type='submit' value='<?php echo $postId ?>' name='confirm-delete'>Confirm</button>
             <a href='home.php'>Cancel</a>
         </div>
     </form>
