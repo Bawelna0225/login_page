@@ -560,13 +560,15 @@ section .cards .card .author_pic {
   padding: 10px;
   margin: 0 auto;
 }
-.comments-section .comments .user-comment .commenter {
+.comments-section .comments .user-comment .commenter a {
   display: flex;
   justify-content: start;
   align-items: center;
   gap: 5px;
+  text-decoration: none;
+  color: var(--text-color);
 }
-.comments-section .comments .user-comment .commenter .commenter_pic {
+.comments-section .comments .user-comment .commenter a .commenter_pic {
   width: 35px;
   border-radius: 8px;
 }

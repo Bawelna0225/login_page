@@ -129,15 +129,15 @@
                         $run_sql = mysqli_query($connection, $select_author);
                         $fetch_info = mysqli_fetch_assoc($run_sql);
                         if($fetch_info['picture'] == '') {
-                            echo "<div class='commenter'>";
+                            echo "<div class='commenter'><a href='userprofile.php?user_id=$userId'>";
                                 echo "<p class='authorname'>".$fetch_info['name']."</p>";
                                 $string = str_replace(' ', '', $fetch_info['name']);
                                 echo "<span class='".$string." authorlogo'></span>";
                         } else {
-                            echo "<div class='commenter'><img class='commenter_pic' src='upload/". $fetch_info['picture']."'>";
+                            echo "<div class='commenter'><a href='userprofile.php?user_id=$userId'><img class='commenter_pic' src='upload/". $fetch_info['picture']."'>";
                         }
                             echo "<h4>".$fetch_info['name']."</h4>";
-                        echo "</div>";
+                        echo "</a></div>";
                         echo "<p>".$row['content']."</p>";
                         echo "<button class='reply' data-comment-id='".$row['comment_id']."'>reply<span class='material-symbols-outlined'>reply</span></button>";
                         echo "<form id='form-id-".$row['comment_id']."' class='comment reply-form hidden' action='singlepost.php' method='get' autocomplete='off'>
@@ -162,15 +162,15 @@
                                     $run_sql = mysqli_query($connection, $select_author);
                                     $fetch_info = mysqli_fetch_assoc($run_sql);
                                     if($fetch_info['picture'] == '') {
-                                        echo "<div class='commenter'>";
+                                        echo "<div class='commenter'><a href='userprofile.php?user_id=$userId'>";
                                             echo "<p class='authorname'>".$fetch_info['name']."</p>";
                                             $string = str_replace(' ', '', $fetch_info['name']);
                                             echo "<span class='".$string." authorlogo'></span>";
                                     } else {
-                                        echo "<div class='commenter'><img class='commenter_pic' src='upload/". $fetch_info['picture']."'>";
+                                        echo "<div class='commenter'><a href='userprofile.php?user_id=$userId'><img class='commenter_pic' src='upload/". $fetch_info['picture']."'>";
                                     }
                                         echo "<h4>".$fetch_info['name']."</h4>";
-                                    echo "</div>";
+                                    echo "</a></div>";
                                     echo "<p>".$reply['content']."</p>";
                                 echo "</div>";
                             }
