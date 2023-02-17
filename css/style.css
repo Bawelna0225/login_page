@@ -441,11 +441,12 @@ section .cards .card .author_pic {
   height: max-content;
   padding-inline: 20px;
 }
-.post .top .author {
+.post .top .author a {
+  gap: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  text-decoration: none;
 }
 .post .top .author img {
   max-width: 50px;

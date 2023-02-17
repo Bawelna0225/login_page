@@ -82,17 +82,17 @@
                     $fetch_data_query = mysqli_query($connection, $sql3);
                     $fetch_data =  mysqli_fetch_assoc($fetch_data_query);
                     echo "<div class='top'>";
-                        echo "<p> Created on: ".$fetch_data['date_created']."</p>";
+                        echo "<div><h4> Created on: </h4><p>".$fetch_data['date_created']."</p></div>";
                         $authorId = $fetch_data['author_id'];
                         $select_author = "SELECT * FROM userdata WHERE id='$authorId'";
                         $run_sql = mysqli_query($connection, $select_author);
                         $fetch_info = mysqli_fetch_assoc($run_sql);
                         if($fetch_info['picture'] == '') {
-                            echo "<div class='author'><p>Created by: </p>";
+                            echo "<div class='author'><h4>Created by: </h4><a href='userprofile.php?user_id=$authorId'>";
                         } else {
-                            echo "<div class='author'><p>Created by: </p><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
+                            echo "<div class='author'><h4>Created by: </h4><a href='userprofile.php?user_id=$authorId'><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
                         }
-                        echo "<b>". $fetch_info['name']."</b></div>";
+                        echo "<b>". $fetch_info['name']."</b></a></div>";
                     echo "</div>";
                     echo "<div class='post-content'>";
                         echo "<h1 class='title'>".$fetch_data['title']."</h1>";
