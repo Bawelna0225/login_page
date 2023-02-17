@@ -21,9 +21,9 @@ if(isset($_POST['signup'])){
     }
     if(count($errors) === 0){
         $encpass = password_hash($password, PASSWORD_BCRYPT);
-
-        $insert_data = "INSERT INTO userdata (name, email, password)
-                        values('$name', '$email', '$encpass')";
+        $current_date = date('Y-m-d');
+        $insert_data = "INSERT INTO userdata (name, email, password, date_joined)
+                        values('$name', '$email', '$encpass', '$current_date')";
         $data_check = mysqli_query($connection, $insert_data);
         echo $data_check;
         if($data_check){
