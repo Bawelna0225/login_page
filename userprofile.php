@@ -77,7 +77,19 @@
     </nav>
     <main>
         <section>
-            
+            <?php 
+            echo $fetch_user_info['name'];
+            if($fetch_user_info['picture'] == '') {
+                echo "<div class='author'>";
+                    echo "<p class='authorname'>".$fetch_user_info['name']."</p>";
+                    $string = str_replace(' ', '', $fetch_user_info['name']);
+                    echo "<span class='".$string." authorlogo'></span>";
+
+            } else {
+                echo "<div class='author'><img class='author_pic' src='upload/". $fetch_user_info['picture']."'>";
+            }
+            echo "<p>Joined on: ". $fetch_user_info['date_joined']."</p>";
+            ?>
         </section>
     </main>
 </body>
