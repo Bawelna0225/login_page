@@ -90,15 +90,19 @@
                                 $select_author = "SELECT * FROM userdata WHERE id='$authorId'";
                                 $run_sql = mysqli_query($connection, $select_author);
                                 $fetch_info = mysqli_fetch_assoc($run_sql);
+                                
                                 if($fetch_info['picture'] == '') {
                                     echo "<div class='author'>";
+                                    echo "<a href='userprofile.php?user_id=$authorId'>";
                                         echo "<p class='authorname'>".$fetch_info['name']."</p>";
                                         $string = str_replace(' ', '', $fetch_info['name']);
                                         echo "<span class='".$string." authorlogo'></span>";
+
                                 } else {
+                                    echo "<a href='userprofile.php?user_id=$authorId'>";
                                     echo "<div class='author'><img class='author_pic' src='upload/". $fetch_info['picture']."'>";
                                 }
-                                echo "<b>". $fetch_info['name']."</b></div>";
+                                echo "<b>". $fetch_info['name']."</b></a></div>";
                             echo "</div>";
                         echo "</div>";
                     }
