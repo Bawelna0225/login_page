@@ -71,9 +71,8 @@
     </nav>
     <main>
         <section>
-            User info here
             <?php 
-                echo $_GET['user_id'];
+                $userId = $_GET['user_id'];
             ?>
         </section>
     </main>

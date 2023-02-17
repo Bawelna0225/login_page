@@ -388,10 +388,13 @@ section {
 				}
 			}
 			.author {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				gap: 5px;
+				a {
+					gap: 5px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					text-decoration: none;
+				}
 			}
 			.author_pic {
 				width: 35px;

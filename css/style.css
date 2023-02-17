@@ -410,12 +410,13 @@ section .cards .card .bottom {
 section .cards .card .bottom b {
   color: var(--accent-color);
 }
-.home .cards .card .author,
-section .cards .card .author {
+.home .cards .card .author a,
+section .cards .card .author a {
+  gap: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  text-decoration: none;
 }
 .home .cards .card .author_pic,
 section .cards .card .author_pic {
