@@ -30,9 +30,15 @@
             <script src="./script.js" defer></script>
         <?php
         }
-        $username = "Placeholder Username";
+        
+        $userId = $_GET['user_id'];
+        $sql = "SELECT * FROM userdata WHERE id = '$userId'";
+        $run_sql = mysqli_query($connection, $sql);
+        $fetch_user_info = mysqli_fetch_assoc($run_sql);
+        
+           
     ?>
-    <title><?php echo "User | $username"?></title>
+    <title><?php echo "User | ". $fetch_user_info['name'];?></title>
 </head>
 <body>
     <nav>
@@ -71,9 +77,7 @@
     </nav>
     <main>
         <section>
-            <?php 
-                $userId = $_GET['user_id'];
-            ?>
+            
         </section>
     </main>
 </body>
