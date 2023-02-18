@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 16 Lut 2023, 11:50
+-- Czas generowania: 18 Lut 2023, 13:51
 -- Wersja serwera: 10.4.21-MariaDB
 -- Wersja PHP: 8.0.12
 
@@ -29,18 +29,15 @@ USE `userlogindata`;
 -- Struktura tabeli dla tabeli `postcomments`
 --
 
-CREATE TABLE IF NOT EXISTS `postcomments` (
-  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `postcomments` (
+  `comment_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `parent_comment_id` int(11) DEFAULT NULL,
   `content` text NOT NULL,
   `date_created` datetime NOT NULL,
-  `is_edited` tinyint(1) NOT NULL,
-  PRIMARY KEY (`comment_id`),
-  KEY `post_id` (`post_id`,`user_id`),
-  KEY `postcomments_ibfk_2` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4;
+  `is_edited` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `postcomments`
@@ -91,7 +88,8 @@ INSERT INTO `postcomments` (`comment_id`, `post_id`, `user_id`, `parent_comment_
 (42, 18, 3, NULL, 'Muszę koniecznie poprawić responsywność tej strony, zwłaszcza tekstu', '2023-02-14 23:18:58', 0),
 (43, 1, 3, NULL, 'This is first post ever, created for this project', '2023-02-15 13:55:32', 0),
 (44, 1, 3, 4, 'You are retarded, you muppet', '2023-02-15 13:55:50', 0),
-(45, 18, 3, 42, 'Poprawione!', '2023-02-15 13:57:43', 0);
+(45, 18, 3, 42, 'Poprawione!', '2023-02-15 13:57:43', 0),
+(48, 15, 9, NULL, 'First Comment from this user', '2023-02-17 11:55:01', 0);
 
 -- --------------------------------------------------------
 
@@ -99,28 +97,43 @@ INSERT INTO `postcomments` (`comment_id`, `post_id`, `user_id`, `parent_comment_
 -- Struktura tabeli dla tabeli `userdata`
 --
 
-CREATE TABLE IF NOT EXISTS `userdata` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `userdata` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `picture` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+  `date_joined` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `userdata`
 --
 
-INSERT INTO `userdata` (`id`, `name`, `email`, `password`, `picture`) VALUES
-(1, 'test', 'test1@test.com', '$2y$10$oLdCh2zhxUAIEfXLpNiQuegXaQ2MRC5wB30.Sv8dc9lWB4EUPYmNm', '1674298765.png'),
-(2, 'Test User2', '123@123.123', '$2y$10$u01lbw45eBZQCnycZTx6k.HmST2HR2wXSwhxT2sRE4vC83YYAU/.K', '1675693490.png'),
-(3, 'Paweł Czarnecki', 'pawelczarnecki0225@gmail.com', '$2y$10$h07BrViyVbJZxm23nmd7v.FteaKbUislT13dk71tgumP1PyUVXMCq', '1675854493.png'),
-(4, 'Czajnik Elektryczny', 'czajnikelektryczny0225@gmail.com', '$2y$10$uHVUiCJgDJEuQMhJ2RQpru6n44AIYOxwo7h/hDGPblgPRZ6JdemnO', '1674221276.png'),
-(5, 'John Doe', 'johndoe@example.com', '$2y$10$vxqk4Y1Jzs9hvE3VB/FZJ.9O5pxblDthTMHtLG3xdZYPZCnqAkn6q', ''),
-(6, 'Samuel L. Jackson', 'samuelljackson@mail.com', '$2y$10$Zci0gCg4mLTRvf6TtoFHjujPQhhrcd5VrgxsCR2s92IlQNrieYwce', ''),
-(7, 'Brand New User', 'brandnewuser@mail.com', '$2y$10$dljNEw8/mNoiahV1yTbNJ.XXSIJvYvlStujSZmAh1tJ1NNiKAL4zy', NULL),
-(8, 'Tomisław Apoloniusz Curuś Bachleda Farrell', 'bachledafarrel@mail.com', '$2y$10$oN.uGuqibPO1eXToLJMaTe10cjWr0Ey6WMr9zy7Kj1pgDj8o2iWRW', NULL);
+INSERT INTO `userdata` (`id`, `name`, `email`, `password`, `picture`, `date_joined`) VALUES
+(1, 'test', 'test1@test.com', '$2y$10$oLdCh2zhxUAIEfXLpNiQuegXaQ2MRC5wB30.Sv8dc9lWB4EUPYmNm', '1674298765.png', '2023-01-11'),
+(2, 'Test User2', '123@123.123', '$2y$10$u01lbw45eBZQCnycZTx6k.HmST2HR2wXSwhxT2sRE4vC83YYAU/.K', '1675693490.png', '2023-01-11'),
+(3, 'Paweł Czarnecki', 'pawelczarnecki0225@gmail.com', '$2y$10$h07BrViyVbJZxm23nmd7v.FteaKbUislT13dk71tgumP1PyUVXMCq', '1675854493.png', '2023-01-12'),
+(4, 'Czajnik Elektryczny', 'czajnikelektryczny0225@gmail.com', '$2y$10$uHVUiCJgDJEuQMhJ2RQpru6n44AIYOxwo7h/hDGPblgPRZ6JdemnO', '1674221276.png', '2023-01-12'),
+(5, 'John Doe', 'johndoe@example.com', '$2y$10$vxqk4Y1Jzs9hvE3VB/FZJ.9O5pxblDthTMHtLG3xdZYPZCnqAkn6q', '', '2023-02-02'),
+(6, 'Samuel L. Jackson', 'samuelljackson@mail.com', '$2y$10$Zci0gCg4mLTRvf6TtoFHjujPQhhrcd5VrgxsCR2s92IlQNrieYwce', '', '2023-02-05'),
+(7, 'Brand New User', 'brandnewuser@mail.com', '$2y$10$dljNEw8/mNoiahV1yTbNJ.XXSIJvYvlStujSZmAh1tJ1NNiKAL4zy', NULL, '2023-02-15'),
+(8, 'Tomisław Apoloniusz Curuś Bachleda Farrell', 'bachledafarrel@mail.com', '$2y$10$oN.uGuqibPO1eXToLJMaTe10cjWr0Ey6WMr9zy7Kj1pgDj8o2iWRW', NULL, '2023-02-16'),
+(9, 'Jane Doe', 'janedoe@example.com', '$2y$10$L75GjiHfrRWTLkceXLcrRuaW3MT4Q6QDvuY7IUUs2xWSxDSGQGczK', NULL, '2023-02-17');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `userdetails`
+--
+
+CREATE TABLE `userdetails` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `introduction` text NOT NULL,
+  `github` varchar(40) NOT NULL,
+  `website` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -128,15 +141,13 @@ INSERT INTO `userdata` (`id`, `name`, `email`, `password`, `picture`) VALUES
 -- Struktura tabeli dla tabeli `userposts`
 --
 
-CREATE TABLE IF NOT EXISTS `userposts` (
-  `post_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `userposts` (
+  `post_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `date_created` date NOT NULL,
-  PRIMARY KEY (`post_id`),
-  KEY `userposts_ibfk_1` (`author_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+  `date_created` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `userposts`
@@ -162,6 +173,66 @@ INSERT INTO `userposts` (`post_id`, `author_id`, `title`, `content`, `date_creat
 (18, 3, 'Pomysł na kolejny element tego projektu', 'A może by tak dodać stronę z profilem użytkownika, jest to dosyć proste, można też dodać kilka dodatkowych opcji np.\r\n- opis profilu wprowadzony przez użytkownika\r\n- linki do mediów społecznościowych\r\n- Wyświetlanie ilości postów napisanych przez użytkownika\r\n- profil będzie zawierał podobną sekcję komentarzy jak strona single post', '2023-02-14');
 
 --
+-- Indeksy dla zrzutów tabel
+--
+
+--
+-- Indeksy dla tabeli `postcomments`
+--
+ALTER TABLE `postcomments`
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `post_id` (`post_id`,`user_id`),
+  ADD KEY `postcomments_ibfk_2` (`user_id`);
+
+--
+-- Indeksy dla tabeli `userdata`
+--
+ALTER TABLE `userdata`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `userdetails`
+--
+ALTER TABLE `userdetails`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indeksy dla tabeli `userposts`
+--
+ALTER TABLE `userposts`
+  ADD PRIMARY KEY (`post_id`),
+  ADD KEY `userposts_ibfk_1` (`author_id`);
+
+--
+-- AUTO_INCREMENT dla zrzuconych tabel
+--
+
+--
+-- AUTO_INCREMENT dla tabeli `postcomments`
+--
+ALTER TABLE `postcomments`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT dla tabeli `userdata`
+--
+ALTER TABLE `userdata`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT dla tabeli `userdetails`
+--
+ALTER TABLE `userdetails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `userposts`
+--
+ALTER TABLE `userposts`
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
 -- Ograniczenia dla zrzutów tabel
 --
 
@@ -171,6 +242,12 @@ INSERT INTO `userposts` (`post_id`, `author_id`, `title`, `content`, `date_creat
 ALTER TABLE `postcomments`
   ADD CONSTRAINT `postcomments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `userposts` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `postcomments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `userdata` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ograniczenia dla tabeli `userdetails`
+--
+ALTER TABLE `userdetails`
+  ADD CONSTRAINT `userdetails_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `userdata` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ograniczenia dla tabeli `userposts`
