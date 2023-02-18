@@ -1,5 +1,6 @@
 <?php require_once "userDataController.php"; ?>
 <?php  
+    $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
     if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
         $isUserLoggedIn = true;
         $email = $_SESSION['email'];
@@ -76,19 +77,27 @@
         ?>
     </nav>
     <main>
-        <section>
+        <section class='header'>
             <?php 
-            echo $fetch_user_info['name'];
             if($fetch_user_info['picture'] == '') {
                 echo "<div class='author'>";
-                    echo "<p class='authorname'>".$fetch_user_info['name']."</p>";
-                    $string = str_replace(' ', '', $fetch_user_info['name']);
-                    echo "<span class='".$string." authorlogo'></span>";
-
+                echo "<p class='authorname'>".$fetch_user_info['name']."</p>";
+                $string = str_replace(' ', '', $fetch_user_info['name']);
+                echo "<span class='".$string." authorlogo'></span>";
+                
             } else {
                 echo "<div class='author'><img class='author_pic' src='upload/". $fetch_user_info['picture']."'>";
             }
-            echo "<p>Joined on: ". $fetch_user_info['date_joined']."</p>";
+            echo "<div class='content'>";
+                echo "<h2>". $fetch_user_info['name']."</h2>";
+                echo "<p class='introduction'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora amet ullam, ea perferendis nostrum modi dolor molestias facilis odio laborum? "."</p>";
+                echo "<p><b>Joined on:</b> ". $fetch_user_info['date_joined']."</p>";
+                echo "<div class='social'>";
+                    echo "<p><b>Email:</b> ". $fetch_user_info['email']."</p>";
+                    echo "<p><b>Github:</b> <a href='#'>https://github.com/bawelna0225 </a>"."</p>";
+                    echo "<p><b>Website:</b> <a href='#'>https://pawel-czarnecki.com </a>"."</p>";
+                echo "</div>";
+            echo "</div>";
             ?>
         </section>
     </main>

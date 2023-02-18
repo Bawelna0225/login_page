@@ -535,7 +535,7 @@ section {
 			border-radius: 4px;
 			padding: 10px;
 			margin: 0 auto;
-			.commenter a{
+			.commenter a {
 				display: flex;
 				justify-content: start;
 				align-items: center;
@@ -681,7 +681,48 @@ section {
 		}
 	}
 }
-
+.header {
+	margin-top: 50px;
+	width: min(calc(100vw - 2rem), 1200px);
+	box-shadow: 0px 0px 10px var(--shadow-color);
+	border-radius: 4px;
+	position: relative;
+	h2,p {
+		text-align: center;
+	}
+	h2 {
+		color: var(--accent-color);
+	}
+	.introduction {
+		max-width: 800px;
+		padding-block: 20px;
+	}
+	img,.authorlogo {
+		width: 100px;
+		border-radius: 8px;
+		position: absolute;
+		top: -20px;
+		left: 50%;
+		translate: -50% 0%;
+		font-size: 3rem;
+		background-color: var(--primary-color);
+	}
+	.content {
+		margin-top: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		.social {
+			padding-block: 20px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			gap: 20px;
+		}
+	}
+}
 @media (width < 720px) {
 	.home,
 	section {

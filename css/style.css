@@ -706,6 +706,49 @@ section .cards .card .author_pic {
   border: 1px solid var(--hover-accent-color);
 }
 
+.header {
+  margin-top: 50px;
+  width: min(100vw - 2rem, 1200px);
+  box-shadow: 0px 0px 10px var(--shadow-color);
+  border-radius: 4px;
+  position: relative;
+}
+.header h2, .header p {
+  text-align: center;
+}
+.header h2 {
+  color: var(--accent-color);
+}
+.header .introduction {
+  max-width: 800px;
+  padding-block: 20px;
+}
+.header img, .header .authorlogo {
+  width: 100px;
+  border-radius: 8px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  translate: -50% 0%;
+  font-size: 3rem;
+  background-color: var(--primary-color);
+}
+.header .content {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.header .content .social {
+  padding-block: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
 @media (width < 720px) {
   .home,
 section {
