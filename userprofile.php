@@ -98,8 +98,8 @@
                 echo "<p><b>Joined on:</b> ". $fetch_user_info['date_joined']."</p>";
                 echo "<div class='social'>";
                     echo "<p><b>Email:</b> ". $fetch_user_info['email']."</p>";
-                    echo "<p><b>Github:</b> <a href='#'>".$fetch_user_details['github']."</a></p>";
-                    echo "<p><b>Website:</b> <a href='#'>".$fetch_user_details['github']."</a></p>";
+                    echo "<p><b>Github:</b> <a href='".$fetch_user_details['github']."'>".$fetch_user_details['github']."</a></p>";
+                    echo "<p><b>Website:</b> <a href='".$fetch_user_details['website']."'>".$fetch_user_details['website']."</a></p>";
                 echo "</div>";
             echo "</div>";
             ?>
