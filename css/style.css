@@ -721,7 +721,7 @@ section .cards .card .author_pic {
 }
 .header .introduction {
   max-width: 800px;
-  padding-block: 20px;
+  padding: 20px;
 }
 .header img, .header .authorlogo {
   width: 100px;
