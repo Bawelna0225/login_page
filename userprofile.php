@@ -79,6 +79,10 @@
     <main>
         <section class='header'>
             <?php 
+            $user_details = "SELECT * FROM userdetails WHERE id = '$userId'";
+            $run_query = mysqli_query($connection, $user_details);
+            $fetch_user_details = mysqli_fetch_assoc($run_query);
+
             if($fetch_user_info['picture'] == '') {
                 echo "<div class='author'>";
                 echo "<p class='authorname'>".$fetch_user_info['name']."</p>";
@@ -90,12 +94,12 @@
             }
             echo "<div class='content'>";
                 echo "<h2>". $fetch_user_info['name']."</h2>";
-                echo "<p class='introduction'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora amet ullam, ea perferendis nostrum modi dolor molestias facilis odio laborum? "."</p>";
+                echo "<p class='introduction'>".$fetch_user_details['introduction']."</p>";
                 echo "<p><b>Joined on:</b> ". $fetch_user_info['date_joined']."</p>";
                 echo "<div class='social'>";
                     echo "<p><b>Email:</b> ". $fetch_user_info['email']."</p>";
-                    echo "<p><b>Github:</b> <a href='#'>https://github.com/bawelna0225 </a>"."</p>";
-                    echo "<p><b>Website:</b> <a href='#'>https://pawel-czarnecki.com </a>"."</p>";
+                    echo "<p><b>Github:</b> <a href='#'>".$fetch_user_details['github']."</a></p>";
+                    echo "<p><b>Website:</b> <a href='#'>".$fetch_user_details['github']."</a></p>";
                 echo "</div>";
             echo "</div>";
             ?>
