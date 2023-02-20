@@ -50,6 +50,17 @@ if($email != false && $password != false){
 
     <div class="home">
         <h1>Welcome <span><?php echo $fetch_info['name'] ?></span></h1>
+        <form action="home.php" class='introduction_form' method="post">
+            <h4 style='color: var(--accent-color);'>Tell us about yourself</h4>
+            <label for="introduction">About <span style='color: var(--accent-color);'>*</span></label>
+            <textarea placeholder='Introduce Yourself' name='introduction' required></textarea>
+            <label for="github_link">Github</label>
+            <input type="text" placeholder='https://github.com/...' name='github_link'>
+            <label for="website_link">Website</label>
+            <input type="text" placeholder='https://yourwebsite' name='website_link'>
+            <button type='submit' name='user_id' class='submit' value="<?php $fetch_info['id'] ?>">Submit</button>
+            <p><span style='color: var(--accent-color);'>*</span> required fields</p>
+        </form>
         <h3>Your Posts</h3>
          <div class="cards">
             <?php 
