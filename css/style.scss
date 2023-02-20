@@ -403,6 +403,23 @@ section {
 		}
 	}
 }
+.introduction_form {
+	align-items: start;
+	gap: 5px;
+	.submit {
+		margin-block: 10px;
+		width: 100%;
+		padding: 8px 15px;
+		border-radius: 4px;
+		border: none;
+		background-color: var(--accent-color);
+		color: white;
+		&:hover {
+			cursor: pointer;
+			background-color: var(--hover-accent-color);
+		}
+	}
+}
 .post {
 	display: flex;
 	flex-direction: column;

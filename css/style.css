@@ -424,6 +424,24 @@ section .cards .card .author_pic {
   border-radius: 8px;
 }
 
+.introduction_form {
+  align-items: start;
+  gap: 5px;
+}
+.introduction_form .submit {
+  margin-block: 10px;
+  width: 100%;
+  padding: 8px 15px;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--accent-color);
+  color: white;
+}
+.introduction_form .submit:hover {
+  cursor: pointer;
+  background-color: var(--hover-accent-color);
+}
+
 .post {
   display: flex;
   flex-direction: column;
