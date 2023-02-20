@@ -24,6 +24,8 @@ if(isset($_POST['signup'])){
         $current_date = date('Y-m-d');
         $insert_data = "INSERT INTO userdata (name, email, password, date_joined)
                         values('$name', '$email', '$encpass', '$current_date')";
+        $insert_details = "INSERT INTO userdetails (introduction, github, website) values('', '', '')";
+        mysqli_query($connection, $insert_details);
         $data_check = mysqli_query($connection, $insert_data);
         echo $data_check;
         if($data_check){
