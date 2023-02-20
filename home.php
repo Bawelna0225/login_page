@@ -49,15 +49,20 @@ if($email != false && $password != false){
     </nav>
 
     <div class="home">
+        <?php 
+            $user_details_sql = "SELECT * FROM userdetails WHERE id =". $fetch_info['id'];
+            $run_user_details_sql = mysqli_query($connection, $user_details_sql);
+            $fetch_user_details = mysqli_fetch_assoc($run_user_details_sql);
+        ?>
         <h1>Welcome <span><?php echo $fetch_info['name'] ?></span></h1>
         <form action="home.php" class='introduction_form' method="post">
             <h4 style='color: var(--accent-color);'>Tell us about yourself</h4>
             <label for="introduction">About <span style='color: var(--accent-color);'>*</span></label>
-            <textarea placeholder='Introduce Yourself' name='introduction' required></textarea>
+            <textarea placeholder='Introduce Yourself' name='introduction' required><?php echo $fetch_user_details['introduction'] ?></textarea>
             <label for="github_link">Github</label>
-            <input type="text" placeholder='https://github.com/...' name='github_link'>
+            <input type="text" placeholder='https://github.com/...' value='<?php echo $fetch_user_details['github'] ?>' name='github_link'>
             <label for="website_link">Website</label>
-            <input type="text" placeholder='https://yourwebsite' name='website_link'>
+            <input type="text" placeholder='https://yourwebsite' value='<?php echo $fetch_user_details['website'] ?>' name='website_link'>
             <button type='submit' name='user_id' class='submit' value="<?php $fetch_info['id'] ?>">Submit</button>
             <p><span style='color: var(--accent-color);'>*</span> required fields</p>
         </form>
