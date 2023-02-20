@@ -55,42 +55,51 @@ if($email != false && $password != false){
             $fetch_user_details = mysqli_fetch_assoc($run_user_details_sql);
         ?>
         <h1>Welcome <span><?php echo $fetch_info['name'] ?></span></h1>
-        <form action="home.php" class='introduction_form' method="post">
-            <h4 style='color: var(--accent-color);'>Tell us about yourself</h4>
-            <label for="introduction">About <span style='color: var(--accent-color);'>*</span></label>
-            <textarea placeholder='Introduce Yourself' name='introduction' required><?php echo $fetch_user_details['introduction'] ?></textarea>
-            <label for="github_link">Github</label>
-            <input type="text" placeholder='https://github.com/...' value='<?php echo $fetch_user_details['github'] ?>' name='github_link'>
-            <label for="website_link">Website</label>
-            <input type="text" placeholder='https://yourwebsite' value='<?php echo $fetch_user_details['website'] ?>' name='website_link'>
-            <button type='submit' name='user_id' class='submit' value="<?php echo $fetch_info['id'] ?>">Submit</button>
-            <p><span style='color: var(--accent-color);'>*</span> required fields</p>
-        </form>
-        <h3>Your Posts</h3>
-         <div class="cards">
-            <?php 
+        <div class="layout">
+            <div class="left-panel">
+                <h3>Introduction</h3>
+                 <form action="home.php" class='introduction_form' method="post">
+                    <h4 style='color: var(--accent-color);'>Tell us about yourself</h4>
+                    <label for="introduction">About <span style='color: var(--accent-color);'>*</span></label>
+                    <textarea placeholder='Introduce Yourself' name='introduction' required><?php echo $fetch_user_details['introduction'] ?></textarea>
+                    <label for="github_link">Github</label>
+                    <input type="text" placeholder='https://github.com/...' value='<?php echo $fetch_user_details['github'] ?>' name='github_link'>
+                    <label for="website_link">Website</label>
+                    <input type="text" placeholder='https://yourwebsite' value='<?php echo $fetch_user_details['website'] ?>' name='website_link'>
+                    <button type='submit' name='user_id' class='submit' value="<?php echo $fetch_info['id'] ?>">Submit</button>
+                    <p><span style='color: var(--accent-color);'>*</span> required fields</p>
+                </form>
+            </div>
+          
+            <div class='posts'>
+                <h3>Your Posts</h3>
+                <div class="cards">
+                    <?php 
 
-                $sql2 = "SELECT * FROM userdata WHERE email = '$email'";
-                $run_sql2 = mysqli_query($connection, $sql2);
-                $fetch_info = mysqli_fetch_assoc($run_sql2);
-                $id = $fetch_info['id'];
+                        $sql2 = "SELECT * FROM userdata WHERE email = '$email'";
+                        $run_sql2 = mysqli_query($connection, $sql2);
+                        $fetch_info = mysqli_fetch_assoc($run_sql2);
+                        $id = $fetch_info['id'];
 
-                $sql3 = "SELECT * FROM userposts WHERE author_id='$id' ORDER BY post_id desc";
-                $fetch_posts = mysqli_query($connection, $sql3);
-                while ($row = mysqli_fetch_assoc($fetch_posts))
-                {
-                    echo "<div class='card'>";
-                        echo "<div class='forms'><form action='deletepost.php' method='POST' autocomplete='off'><button name='postId' type='submit' value='".$row['post_id']."'><span class='material-symbols-outlined'>delete</span></button></form><form action='editpost.php' method='POST' autocomplete='off'><input type='hidden' name='postId' value='".$row['post_id']."'><button><span class='material-symbols-outlined'>edit</span></button></form></div>";
-                        echo "<h2>".$row['title']."</h2>";
-                        echo "<p>".$row['content']."</p>";
-                        echo "<div class='bottom'>";
-                            echo "<small>".$row['date_created']."</small>";
-                            echo "<b>".$fetch_info['name']."</b>";
-                        echo "</div>";
-                    echo "</div>";
-                }
-            ?>
+                        $sql3 = "SELECT * FROM userposts WHERE author_id='$id' ORDER BY post_id desc";
+                        $fetch_posts = mysqli_query($connection, $sql3);
+                        while ($row = mysqli_fetch_assoc($fetch_posts))
+                        {
+                            echo "<div class='card'>";
+                                echo "<div class='forms'><form action='deletepost.php' method='POST' autocomplete='off'><button name='postId' type='submit' value='".$row['post_id']."'><span class='material-symbols-outlined'>delete</span></button></form><form action='editpost.php' method='POST' autocomplete='off'><input type='hidden' name='postId' value='".$row['post_id']."'><button><span class='material-symbols-outlined'>edit</span></button></form></div>";
+                                echo "<h2>".$row['title']."</h2>";
+                                echo "<p>".$row['content']."</p>";
+                                echo "<div class='bottom'>";
+                                    echo "<small>".$row['date_created']."</small>";
+                                    echo "<b>".$fetch_info['name']."</b>";
+                                echo "</div>";
+                            echo "</div>";
+                        }
+                    ?>
+                </div>
+            </div>
         </div>
+        
     </div>
    
 

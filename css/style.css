@@ -424,6 +424,29 @@ section .cards .card .author_pic {
   border-radius: 8px;
 }
 
+.layout {
+  display: flex;
+  max-width: 1600px;
+  justify-content: start;
+  align-items: start;
+  flex-direction: row;
+  gap: 20px;
+  margin-inline: 20px;
+  flex-wrap: wrap;
+}
+.layout .left-panel {
+  width: 400px;
+}
+.layout .left-panel h3 {
+  padding-left: 0px;
+}
+.layout .left-panel form {
+  margin-top: 25px;
+}
+.layout .posts {
+  width: calc(100% - 450px);
+}
+
 .introduction_form {
   align-items: start;
   gap: 5px;
@@ -731,7 +754,8 @@ section .cards .card .author_pic {
   border-radius: 4px;
   position: relative;
 }
-.header h2, .header p {
+.header h2,
+.header p {
   text-align: center;
 }
 .header h2 {
@@ -741,7 +765,8 @@ section .cards .card .author_pic {
   max-width: 800px;
   padding: 20px;
 }
-.header img, .header .authorlogo {
+.header img,
+.header .authorlogo {
   width: 100px;
   border-radius: 8px;
   position: absolute;
@@ -771,6 +796,35 @@ section .cards .card .author_pic {
   .home,
 section {
     place-content: start;
+  }
+}
+@media (width < 1000px) {
+  .layout {
+    flex-direction: column;
+  }
+  .layout .left-panel, .layout .posts {
+    width: 100% !important;
+  }
+  .layout .left-panel h3, .layout .posts h3 {
+    text-align: center;
+  }
+  .layout .cards {
+    padding-inline: 0;
+  }
+  .layout .left-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .layout .left-panel form {
+    width: 100%;
+  }
+  .layout .left-panel form input, .layout .left-panel form textarea {
+    width: 100%;
+  }
+  .layout .left-panel form button {
+    width: 100px;
   }
 }
 .authorname {
