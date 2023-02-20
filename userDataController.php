@@ -70,7 +70,25 @@ if(isset($_POST['signup'])){
         }
     }
 
-
+    // Change details
+    if(isset($_POST['user_id'])){
+        $_SESSION['info'] = "";
+        $user_id = mysqli_real_escape_string($connection, $_POST['user_id']);
+        $introduction = mysqli_real_escape_string($connection, $_POST['introduction']);
+        $github = mysqli_real_escape_string($connection, $_POST['github_link']);
+        $website = mysqli_real_escape_string($connection, $_POST['website_link']);
+         
+        $update_details = "UPDATE userdetails SET introduction = '$introduction', github = '$github', website = '$website' WHERE id = $user_id";
+        $run_query = mysqli_query($connection, $update_details);
+        if($run_query){
+            $info = "Your information is changed.";
+            $_SESSION['info'] = $info;
+            header('Location: home.php');
+        }else{
+            $errors['db-error'] = "Failed to update your info!";
+        }
+        
+    }
     // Change password
     if(isset($_POST['change-password'])){
         $_SESSION['info'] = "";

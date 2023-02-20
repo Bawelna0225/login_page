@@ -63,7 +63,7 @@ if($email != false && $password != false){
             <input type="text" placeholder='https://github.com/...' value='<?php echo $fetch_user_details['github'] ?>' name='github_link'>
             <label for="website_link">Website</label>
             <input type="text" placeholder='https://yourwebsite' value='<?php echo $fetch_user_details['website'] ?>' name='website_link'>
-            <button type='submit' name='user_id' class='submit' value="<?php $fetch_info['id'] ?>">Submit</button>
+            <button type='submit' name='user_id' class='submit' value="<?php echo $fetch_info['id'] ?>">Submit</button>
             <p><span style='color: var(--accent-color);'>*</span> required fields</p>
         </form>
         <h3>Your Posts</h3>
