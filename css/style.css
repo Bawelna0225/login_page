@@ -10,11 +10,22 @@
   --primary-color: rgb(255, 255, 255);
   --text-color: rgb(0, 0, 0);
   --accent-color: rgb(205, 102, 81);
+  --accent-color: rgb(60, 60, 60);
   --hover-accent-color: rgb(184, 82, 64);
   --input-border-color: rgb(179, 179, 179);
   --shadow-color: rgba(0, 0, 0, 0.113);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: rgb(20, 20, 20);
+    --text-color: rgb(255, 255, 255);
+    --accent-color: rgb(205, 102, 81);
+    --hover-accent-color: rgb(184, 82, 64);
+    --input-border-color: rgb(179, 179, 179);
+    --shadow-color: rgba(7, 7, 7, 0.559);
+  }
+}
 body {
   display: grid;
   place-content: start;
@@ -192,6 +203,13 @@ nav .buttons a {
 }
 nav .buttons a:hover {
   color: var(--accent-color);
+}
+nav .buttons #help-btn {
+  color: #fff;
+  border: 1px solid #fff;
+  text-shadow: 0px 0px 3px black;
+  box-shadow: 0px 0px 5px black;
+  background-color: transparent;
 }
 nav button {
   border-radius: 8px;
@@ -399,6 +417,12 @@ section .cards .card .read-more button {
 section .cards .card .read-more button:hover {
   cursor: pointer;
   background-color: var(--hover-accent-color);
+}
+.home .cards .card .comments-count,
+section .cards .card .comments-count {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .home .cards .card .bottom,
 section .cards .card .bottom {

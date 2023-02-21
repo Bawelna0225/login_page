@@ -31,6 +31,7 @@ if($email != false && $password != false){
         
         <div class="buttons">
             <a href="createpost.php"><span class="material-symbols-outlined">post_add</span>Create Post</a>
+            <a id='help-btn' href="help.html"><span class="material-symbols-outlined">help</span>Help</a>
             <?php 
                 if($fetch_info['picture'] == '') {
                    echo "<button class='user-logo' data-user-logo id='user-logo'></button>";

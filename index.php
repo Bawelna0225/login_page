@@ -45,6 +45,7 @@
                 <p class='username'><?php echo $fetch_info['name'] ?></p>
                 <div class="buttons">
                     <a href="createpost.php"><span class="material-symbols-outlined">post_add</span>Create Post</a>
+                    <a id='help-btn' href="help.html"><span class="material-symbols-outlined">help</span>Help</a>
                     <?php 
                         if($fetch_info['picture'] == '') {
                         echo "<button class='user-logo' data-user-logo></button>";
@@ -85,6 +86,9 @@
                             echo "<form class='read-more' action='singlepost.php' method='GET' autocomplete='off'>
                                 <button type='submit' name='post_id' value=".$row['post_id'].">READ MORE</button>
                             </form>";
+                            $select_comments_quantity_query = "SELECT * FROM postcomments WHERE post_id = ".$row['post_id'];
+                            $comments_quantity = mysqli_query($connection, $select_comments_quantity_query);
+                            echo "<span class='comments-count'><span class='material-symbols-outlined'>mode_comment</span> ".mysqli_num_rows($comments_quantity)."</span>";
                             echo "<div class='bottom'>";
                                 echo "<small>".$row['date_created']."</small>";
                                 $authorId = $row['author_id'];
