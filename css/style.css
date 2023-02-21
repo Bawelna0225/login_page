@@ -10,22 +10,11 @@
   --primary-color: rgb(255, 255, 255);
   --text-color: rgb(0, 0, 0);
   --accent-color: rgb(205, 102, 81);
-  --accent-color: rgb(60, 60, 60);
   --hover-accent-color: rgb(184, 82, 64);
   --input-border-color: rgb(179, 179, 179);
   --shadow-color: rgba(0, 0, 0, 0.113);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: rgb(20, 20, 20);
-    --text-color: rgb(255, 255, 255);
-    --accent-color: rgb(205, 102, 81);
-    --hover-accent-color: rgb(184, 82, 64);
-    --input-border-color: rgb(179, 179, 179);
-    --shadow-color: rgba(7, 7, 7, 0.559);
-  }
-}
 body {
   display: grid;
   place-content: start;
@@ -332,6 +321,7 @@ section .cards .card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: var(--primary-color);
   border: 1px solid rgb(114, 114, 114);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
@@ -450,7 +440,7 @@ section .cards .card .author_pic {
 
 .layout {
   display: flex;
-  max-width: 1600px;
+  max-width: 2000px;
   justify-content: start;
   align-items: start;
   flex-direction: row;
@@ -516,14 +506,36 @@ section .cards .card .author_pic {
   margin-top: 25px;
 }
 .layout .posts {
-  width: calc(100% - 450px);
+  width: calc(100% - 900px);
+}
+.layout .right-panel {
+  width: 400px;
+  background-color: var(--primary-color);
+}
+.layout .right-panel form {
+  margin: 0 auto;
+}
+.layout .right-panel form .color-input {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  padding: 8px;
+}
+.layout .right-panel form .color-input input {
+  padding: 0;
+  margin: 0;
+  width: 25px;
+  border: none;
+  outline: none;
 }
 
-.introduction_form {
+.layout_form {
   align-items: start;
   gap: 5px;
 }
-.introduction_form .submit {
+.layout_form .submit {
   margin-block: 10px;
   width: 100%;
   padding: 8px 15px;
@@ -532,7 +544,7 @@ section .cards .card .author_pic {
   background-color: var(--accent-color);
   color: white;
 }
-.introduction_form .submit:hover {
+.layout_form .submit:hover {
   cursor: pointer;
   background-color: var(--hover-accent-color);
 }
@@ -872,35 +884,72 @@ section {
     place-content: start;
   }
 }
-@media (width < 1000px) {
+@media (width < 1400px) {
   .layout {
-    flex-direction: column;
+    margin-bottom: 20px;
   }
-  .layout .left-panel,
-.layout .posts {
+  .layout .posts {
+    width: calc(100% - 450px);
+  }
+  .layout .right-panel {
     width: 100% !important;
   }
-  .layout .left-panel h3,
-.layout .posts h3 {
+  .layout .right-panel h3 {
     text-align: center;
   }
   .layout .cards {
     padding-inline: 0;
   }
-  .layout .left-panel {
+  .layout .right-panel {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  .layout .left-panel form {
+  .layout .right-panel form {
+    width: 100%;
+  }
+  .layout .right-panel form input,
+.layout .right-panel form textarea {
+    width: 100%;
+  }
+  .layout .right-panel form button {
+    width: 100px;
+  }
+}
+@media (width < 1000px) {
+  .layout {
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+  .layout .left-panel,
+.layout .posts,
+.layout .right-panel {
+    width: 100% !important;
+  }
+  .layout .left-panel h3,
+.layout .posts h3,
+.layout .right-panel h3 {
+    text-align: center;
+  }
+  .layout .cards {
+    padding-inline: 0;
+  }
+  .layout .left-panel, .layout .right-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .layout .left-panel form, .layout .right-panel form {
     width: 100%;
   }
   .layout .left-panel form input,
-.layout .left-panel form textarea {
+.layout .left-panel form textarea, .layout .right-panel form input,
+.layout .right-panel form textarea {
     width: 100%;
   }
-  .layout .left-panel form button {
+  .layout .left-panel form button, .layout .right-panel form button {
     width: 100px;
   }
 }

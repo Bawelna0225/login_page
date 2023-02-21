@@ -31,7 +31,7 @@ if($email != false && $password != false){
         
         <div class="buttons">
             <a href="createpost.php"><span class="material-symbols-outlined">post_add</span>Create Post</a>
-            <a id='help-btn' href="help.html"><span class="material-symbols-outlined">help</span>Help</a>
+            <a id='help-btn' href="help.php"><span class="material-symbols-outlined">help</span>Help</a>
             <?php 
                 if($fetch_info['picture'] == '') {
                    echo "<button class='user-logo' data-user-logo id='user-logo'></button>";
@@ -67,7 +67,7 @@ if($email != false && $password != false){
                 }
                 ?>
                 <h3>Introduction</h3>
-                 <form action="home.php" class='introduction_form' method="post">
+                 <form action="home.php" class='layout_form' method="post">
                     <h4 style='color: var(--accent-color);'>Tell us about yourself</h4>
                     <label for="introduction">About <span style='color: var(--accent-color);'>*</span></label>
                     <textarea placeholder='Introduce Yourself' name='introduction' required><?php echo $fetch_user_details['introduction'] ?></textarea>
@@ -107,8 +107,40 @@ if($email != false && $password != false){
                     ?>
                 </div>
             </div>
+
+            <div class="right-panel">
+                <h3>Theme</h3>
+                 <form class='layout_form'>
+                    <h4>Customize Your Colors</h4>
+                    <div class="color-input">
+                        <label for="introduction">Primary</label>
+                        <input type="color" data-theme-option='primary'>
+                    </div>
+                    <div class="color-input">
+                        <label for="introduction">Text</label>
+                        <input type="color" data-theme-option='text'>
+                    </div>
+                    <div class="color-input">
+                        <label for="introduction">Accent</label>
+                        <input type="color" data-theme-option='accent'>
+                    </div>
+                    <div class="color-input">
+                        <label for="introduction">Hover Accent</label>
+                        <input type="color" data-theme-option='hover-accent'>
+                    </div>
+                    <div class="color-input">
+                        <label for="introduction">Input Border</label>
+                        <input type="color" data-theme-option='input-border'>
+                    </div>
+                    <div class="color-input">
+                        <label for="introduction">Shadow Color</label>
+                        <input type="color" data-theme-option='shadow'>
+                    </div>
+                    <p><span style='color: var(--accent-color);'>*</span> Be careful to not break your UI</p>
+                    <button type='submit' class='submit'>Save</button>
+                </form>
+            </div>
         </div>
-        
     </div>
    
 

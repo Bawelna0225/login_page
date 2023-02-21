@@ -49,7 +49,7 @@
                 <p class='username'><?php echo $fetch_info['name'] ?></p>
                 <div class="buttons">
                     <a href="createpost.php"><span class="material-symbols-outlined">post_add</span>Create Post</a>
-                    <a id='help-btn' href="help.html"><span class="material-symbols-outlined">help</span>Help</a>
+                    <a id='help-btn' href="help.php"><span class="material-symbols-outlined">help</span>Help</a>
                     <?php 
                         if($fetch_info['picture'] == '') {
                         echo "<button class='user-logo' data-user-logo></button>";
