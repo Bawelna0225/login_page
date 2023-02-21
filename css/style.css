@@ -437,7 +437,8 @@ section .cards .card .author_pic {
 .layout .left-panel {
   width: 400px;
 }
-.layout .left-panel .user-logo {
+.layout .left-panel .user-logo, .layout .left-panel .empty-prof-pic {
+  aspect-ratio: 1;
   width: min(350px, 100%);
   border-radius: 35px;
   border: 2px solid var(--accent-color);

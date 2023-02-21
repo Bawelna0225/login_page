@@ -33,7 +33,7 @@ if($email != false && $password != false){
             <a href="createpost.php"><span class="material-symbols-outlined">post_add</span>Create Post</a>
             <?php 
                 if($fetch_info['picture'] == '') {
-                   echo "<button class='user-logo' id='user-logo'></button>";
+                   echo "<button class='user-logo' data-user-logo id='user-logo'></button>";
                 } else {
                     echo '<button class="user-logo"><img class="user-logo" src="upload/'. $fetch_info['picture'].'"></button>';
                 }
@@ -58,9 +58,19 @@ if($email != false && $password != false){
         <div class="layout">
             <div class="left-panel">
                 <h3>Your Profile Picture</h3>
+                
                 <?php 
-                if($fetch_info['picture'] != '')
-                    echo '<img class="user-logo" src="upload/'.$fetch_info['picture'].'">';
+                if($fetch_info['picture'] == '') {
+                   echo "<div class='user-logo' data-user-logo></div>";
+                } else {
+                    echo '<img class="user-logo" src="upload/'. $fetch_info['picture'].'">';
+                }
+
+                // if($fetch_info['picture'] != '')
+                //     echo '<img class="user-logo" src="upload/'.$fetch_info['picture'].'">';
+                // else {
+                //     echo "<div class='empty-prof-pic'></div>";
+                // }
                 ?>
                 <h3>Introduction</h3>
                  <form action="home.php" class='introduction_form' method="post">

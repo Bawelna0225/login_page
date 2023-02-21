@@ -47,7 +47,7 @@
                     <a href="createpost.php"><span class="material-symbols-outlined">post_add</span>Create Post</a>
                     <?php 
                         if($fetch_info['picture'] == '') {
-                        echo "<button class='user-logo' id='user-logo'></button>";
+                        echo "<button class='user-logo' data-user-logo></button>";
                         } else {
                             echo '<button class="user-logo"><img class="user-logo" src="upload/'. $fetch_info['picture'].'"></button>';
                         }
