@@ -57,6 +57,11 @@ if($email != false && $password != false){
         <h1>Welcome <span><?php echo $fetch_info['name'] ?></span></h1>
         <div class="layout">
             <div class="left-panel">
+                <h3>Your Profile Picture</h3>
+                <?php 
+                if($fetch_info['picture'] != '')
+                    echo '<img class="user-logo" src="upload/'.$fetch_info['picture'].'">';
+                ?>
                 <h3>Introduction</h3>
                  <form action="home.php" class='introduction_form' method="post">
                     <h4 style='color: var(--accent-color);'>Tell us about yourself</h4>
