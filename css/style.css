@@ -437,7 +437,7 @@ section .cards .card .author_pic {
 .layout .left-panel {
   width: 400px;
 }
-.layout .left-panel .user-logo, .layout .left-panel .empty-prof-pic {
+.layout .left-panel .logo-container {
   aspect-ratio: 1;
   width: min(350px, 100%);
   border-radius: 35px;
@@ -454,6 +454,36 @@ section .cards .card .author_pic {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+}
+.layout .left-panel .logo-container img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.layout .left-panel .logo-container span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: 8rem;
+}
+.layout .left-panel .logo-container .overlay {
+  opacity: 0;
+}
+.layout .left-panel .logo-container:hover {
+  cursor: pointer;
+}
+.layout .left-panel .logo-container:hover .overlay {
+  opacity: 1;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.713);
+  z-index: 1;
+  position: absolute;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
 }
 .layout .left-panel h3 {
   padding-left: 0px;
@@ -680,6 +710,7 @@ section .cards .card .author_pic {
 .wrapper img {
   display: block;
   max-width: 100%;
+  width: min(350px, 100%);
 }
 .wrapper h2 {
   text-align: center;
@@ -821,10 +852,12 @@ section {
   .layout {
     flex-direction: column;
   }
-  .layout .left-panel, .layout .posts {
+  .layout .left-panel,
+.layout .posts {
     width: 100% !important;
   }
-  .layout .left-panel h3, .layout .posts h3 {
+  .layout .left-panel h3,
+.layout .posts h3 {
     text-align: center;
   }
   .layout .cards {
@@ -839,7 +872,8 @@ section {
   .layout .left-panel form {
     width: 100%;
   }
-  .layout .left-panel form input, .layout .left-panel form textarea {
+  .layout .left-panel form input,
+.layout .left-panel form textarea {
     width: 100%;
   }
   .layout .left-panel form button {

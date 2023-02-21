@@ -58,19 +58,12 @@ if($email != false && $password != false){
         <div class="layout">
             <div class="left-panel">
                 <h3>Your Profile Picture</h3>
-                
                 <?php 
                 if($fetch_info['picture'] == '') {
-                   echo "<div class='user-logo' data-user-logo></div>";
+                   echo "<a href='changepicture.php' class='logo-container'><div class='user-logo' data-user-logo></div><div class='overlay'><span class='material-symbols-outlined'>photo_camera</span></div></a>";
                 } else {
-                    echo '<img class="user-logo" src="upload/'. $fetch_info['picture'].'">';
+                    echo '<a href="changepicture.php" class="logo-container"><img src="upload/'. $fetch_info['picture'].'"><div class="overlay"><span class="material-symbols-outlined">photo_camera</span></div></a>';
                 }
-
-                // if($fetch_info['picture'] != '')
-                //     echo '<img class="user-logo" src="upload/'.$fetch_info['picture'].'">';
-                // else {
-                //     echo "<div class='empty-prof-pic'></div>";
-                // }
                 ?>
                 <h3>Introduction</h3>
                  <form action="home.php" class='introduction_form' method="post">

@@ -414,7 +414,7 @@ section {
 	flex-wrap: wrap;
 	.left-panel {
 		width: 400px;
-		.user-logo, .empty-prof-pic {
+		.logo-container {
 			aspect-ratio: 1;
 			width: min(350px, 100%);
 			border-radius: 35px;
@@ -428,7 +428,36 @@ section {
 			align-items: center;
 			margin-bottom: 15px;
 			user-select: none;
+			overflow: hidden;
+			position: relative;
+			text-decoration: none;
+			img {
+				width: 100%;
+				object-fit: cover;
+			}
+			span {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				translate: -50% -50%;
+				font-size: 8rem;
+			}
+			.overlay {
+				opacity: 0;
+			}
+			&:hover {
+				cursor: pointer;
+				.overlay {
+					opacity: 1;
+					inset: 0;
+					background-color: rgba(0, 0, 0, 0.713);
+					z-index: 1;
+					position: absolute;
+					backdrop-filter: blur(4px);
+				}
+			}
 		}
+
 		h3 {
 			padding-left: 0px;
 		}
@@ -650,6 +679,7 @@ section {
 	img {
 		display: block;
 		max-width: 100%;
+		width: min(350px, 100%);
 	}
 	h2 {
 		text-align: center;
@@ -789,7 +819,8 @@ section {
 @media (width < 1000px) {
 	.layout {
 		flex-direction: column;
-		.left-panel, .posts {
+		.left-panel,
+		.posts {
 			width: 100% !important;
 			h3 {
 				text-align: center;
@@ -805,7 +836,8 @@ section {
 			flex-direction: column;
 			form {
 				width: 100%;
-				input, textarea {
+				input,
+				textarea {
 					width: 100%;
 				}
 				button {
