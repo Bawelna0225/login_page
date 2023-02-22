@@ -25,6 +25,7 @@ if($email != false && $password != false){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
     <link rel="stylesheet" href="https://fengyuanchen.github.io/cropperjs/css/cropper.css" />
     <script src="https://fengyuanchen.github.io/cropperjs/js/cropper.js"></script> 
+    <script src="./loadTheme.js" defer></script>
     <script>
     $(document).ready(function(){
         var $modal = $('#modal_crop');

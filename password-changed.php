@@ -10,6 +10,7 @@ if($_SESSION['info'] == false){
     <meta charset="UTF-8">
     <title>Login Form</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="./loadTheme.js" defer></script>
 </head>
 <body>
     <div class="wrapper">

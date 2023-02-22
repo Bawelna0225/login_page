@@ -22,6 +22,7 @@ if($email != false && $password != false){
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="./script.js" defer></script>
+    <script src="./theme-customizer.js" defer></script>
     <title><?php echo $fetch_info['name'] ?> | Home</title>
 </head>
 <body>
@@ -110,31 +111,31 @@ if($email != false && $password != false){
 
             <div class="right-panel">
                 <h3>Theme</h3>
-                 <form class='layout_form'>
+                 <form class='layout_form' id='theme-form'>
                     <h4>Customize Your Colors</h4>
                     <div class="color-input">
                         <label for="introduction">Primary</label>
-                        <input type="color" data-theme-option='primary'>
+                        <input type="color" data-theme-option='primary-color'>
                     </div>
                     <div class="color-input">
                         <label for="introduction">Text</label>
-                        <input type="color" data-theme-option='text'>
+                        <input type="color" data-theme-option='text-color'>
                     </div>
                     <div class="color-input">
                         <label for="introduction">Accent</label>
-                        <input type="color" data-theme-option='accent'>
+                        <input type="color" data-theme-option='accent-color'>
                     </div>
                     <div class="color-input">
                         <label for="introduction">Hover Accent</label>
-                        <input type="color" data-theme-option='hover-accent'>
+                        <input type="color" data-theme-option='hover-accent-color'>
                     </div>
                     <div class="color-input">
                         <label for="introduction">Input Border</label>
-                        <input type="color" data-theme-option='input-border'>
+                        <input type="color" data-theme-option='input-border-color'>
                     </div>
                     <div class="color-input">
                         <label for="introduction">Shadow Color</label>
-                        <input type="color" data-theme-option='shadow'>
+                        <input type="color" data-theme-option='shadow-color'>
                     </div>
                     <p><span style='color: var(--accent-color);'>*</span> Be careful to not break your UI</p>
                     <button type='submit' class='submit'>Save</button>

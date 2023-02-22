@@ -14,6 +14,7 @@ if($email == false){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Password</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="./loadTheme.js" defer></script>
 </head>
 <body class='center'>
     <form action="changepassword.php" method="POST" autocomplete="off">

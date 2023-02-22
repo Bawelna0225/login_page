@@ -25,6 +25,8 @@ if($email != false && $password != false){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title><?php echo $fetch_info['name'] ?> | Delete Post</title>
+    <script src="./loadTheme.js" defer></script>
+
 </head>
 <body class='center'>
         <form class='delete-post' action="deletepost.php" method="POST" autocomplete="off">
