@@ -1,9 +1,9 @@
 const themeForm = document.querySelector('#theme-form')
 const themeInputs = document.querySelectorAll('[data-theme-option]')
-const root = document.documentElement
 
 themeForm.addEventListener('submit', (e) => {
 	e.preventDefault()
+	const root = document.documentElement
 	themeInputs.forEach((input) => {
 		let optionName = input.getAttribute('data-theme-option')
 		let colorInputValue = input.value
@@ -13,7 +13,8 @@ themeForm.addEventListener('submit', (e) => {
 	})
 })
 themeInputs.forEach((input) => {
+	const root = document.documentElement
 	let optionName = input.getAttribute('data-theme-option')
 	root.style.setProperty(`--${optionName}`, localStorage.getItem(`${optionName}`))
-    input.value = localStorage.getItem(`${optionName}`)
+	input.value = localStorage.getItem(`${optionName}`)
 })
