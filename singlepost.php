@@ -109,7 +109,7 @@
                 <textarea name="comment" id="" cols="30" rows="10" placeholder='Your Comment' required></textarea>
                 <div class="buttons">
                     <button type="reset" value="reset">Cancel<span class="material-symbols-outlined">cancel_schedule_send</span></button>
-                    <button type='submit' name='send'>Submit<span class="material-symbols-outlined">send</span></button>
+                    <button <?php if(!$isUserLoggedIn) echo "disabled" ?> type='submit' name='send'>Submit<span class="material-symbols-outlined">send</span></button>
                 </div>
             </form>
             <div class="comments">
@@ -147,7 +147,7 @@
                             <textarea name='comment' id='' placeholder='Your Comment' required></textarea>
                             <div class='buttons'>
                                 <button type='reset' value='reset' class='cancel-reply' data-cancel-id='".$row['comment_id']."'>Cancel<span class='material-symbols-outlined'>cancel_schedule_send</span></button>
-                                <button type='submit' name='reply' value='".$row['comment_id']."'>Submit<span class='material-symbols-outlined'>send</span></button>
+                                <button "; if(!$isUserLoggedIn) echo "disabled"; echo " type='submit' name='reply' value='".$row['comment_id']."'>Submit<span class='material-symbols-outlined'>send</span></button>
                             </div>
                         </form>";
                         
